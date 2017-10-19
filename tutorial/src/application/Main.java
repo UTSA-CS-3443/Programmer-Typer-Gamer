@@ -26,7 +26,7 @@ public class Main extends Application {
 			
 			Scene scene = new Scene(root); 
 			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
-			primaryStage.setTitle("My title B");
+			primaryStage.setTitle("Programmer-Typer-Gamer");
 			primaryStage.setScene(scene);
 			primaryStage.show();
 		

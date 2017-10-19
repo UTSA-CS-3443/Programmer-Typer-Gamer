@@ -12,7 +12,7 @@ public class MainController {
 	private Label myMessage; 
 	public void generateRandom(ActionEvent event) {
 		Random rand = new Random();
-		int myRand = rand.nextInt(50) + 1; 
+		int myRand = rand.nextInt(1000) + 1; 
 	    myMessage.setText(Integer.toString(myRand)); 
 	}
 } 
