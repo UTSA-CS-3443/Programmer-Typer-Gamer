@@ -1,4 +1,4 @@
-package application;
+package appMain;
 
 import javafx.scene.control.Button; 
 import javafx.application.Application;

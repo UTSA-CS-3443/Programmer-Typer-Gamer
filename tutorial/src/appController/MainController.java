@@ -1,4 +1,4 @@
-package application;
+package appController;
 
 import java.util.Random;
 
