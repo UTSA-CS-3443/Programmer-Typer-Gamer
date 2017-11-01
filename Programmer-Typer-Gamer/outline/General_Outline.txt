@@ -1,0 +1,20 @@
+User Interactions:
+
+	Menu
+  •	The user can select between two game modes.
+  •	There will be a few feature buttons on the side (i.e. difficulty, language, etc.)
+
+	The two types of game mode:
+  •	Typing mode
+    o	User types in programming related paragraphs to test their accuracy and wpm
+    o	User can view where they were wrong
+    o	User is provided a few options after they finish the paragraph (i.e. retry, exit to menu)
+  •	Programming mode
+    o	User reads simple questions regarding language syntax
+    o	User types in the answer to the question 
+    o	User can review the problem. If incorrect, program shows feedback.
+    o	By default, program shows the user some additional information relating to the question at the end of the question.
+
+	Possible extra features:
+  •	Moving words mode in typing game mode for more fun
+  •	Program game mode where user’s input is compiled/ran in java and compared to the answer
