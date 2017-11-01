@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.shape.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.MainController">
+   <children>
+      <Button layoutX="221.0" layoutY="148.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="159.0" text="Keyboard Hero" textFill="RED" />
+      <Button fx:id="Random" layoutX="222.0" layoutY="200.0" mnemonicParsing="false" onAction="#generateRandom" prefHeight="27.0" prefWidth="159.0" text="Random " textFill="#eb0000" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="46.0" layoutX="141.0" layoutY="21.0" stroke="BLACK" strokeType="INSIDE" width="320.0" />
+      <Text fill="RED" layoutX="168.0" layoutY="50.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Programmer-Typer-Game" textAlignment="CENTER" wrappingWidth="266.03369140625">
+         <font>
+            <Font size="18.0" />
+         </font></Text>
+      <Label fx:id="myMessage" layoutX="339.0" layoutY="203.0" prefHeight="21.0" prefWidth="26.0" text="#" textAlignment="CENTER" />
+   </children>
+</AnchorPane>

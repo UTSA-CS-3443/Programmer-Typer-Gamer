@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="300.0" prefWidth="300.0" style="-fx-background-color: grey;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.MainController">
+   <children>
+      <TextField fx:id="user" layoutX="67.0" layoutY="96.0" promptText="User Name">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </TextField>
+      <Button layoutX="121.0" layoutY="181.0" mnemonicParsing="false" onAction="#Login" text="Login">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Button>
+      <Label layoutX="33.0" layoutY="39.0" text="Welcome" textFill="RED">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="status" layoutX="67.0" layoutY="234.0" prefHeight="17.0" prefWidth="128.0" text="Status:" textFill="#6b0606" />
+   </children>
+</AnchorPane>
