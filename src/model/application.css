@@ -6,10 +6,6 @@
 	-fx-font-weight: bold; 
 }
 
-#myMessage {
-	-fx-text-fill: blue; 
-}
-
 .root {
 	-fx-background-image: url("../Images/gamebg.jpg");
 	-fx-background-repeat: stretch;   

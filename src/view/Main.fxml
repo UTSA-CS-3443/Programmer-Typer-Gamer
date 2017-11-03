@@ -9,13 +9,55 @@
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.MainController">
    <children>
-      <Button layoutX="221.0" layoutY="148.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="159.0" text="Keyboard Hero" textFill="RED" />
-      <Button fx:id="Random" layoutX="222.0" layoutY="200.0" mnemonicParsing="false" onAction="#generateRandom" prefHeight="27.0" prefWidth="159.0" text="Random " textFill="#eb0000" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="46.0" layoutX="141.0" layoutY="21.0" stroke="BLACK" strokeType="INSIDE" width="320.0" />
-      <Text fill="RED" layoutX="168.0" layoutY="50.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Programmer-Typer-Game" textAlignment="CENTER" wrappingWidth="266.03369140625">
+      <Button layoutX="245.0" layoutY="282.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="110.0" text="Start" textFill="RED">
+         <font>
+            <Font size="24.0" />
+         </font></Button>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="75.0" layoutX="72.0" layoutY="33.0" stroke="BLACK" strokeType="INSIDE" width="461.0" />
+      <Text fill="RED" layoutX="145.0" layoutY="80.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Keyboard Hero"  textAlignment="CENTER" wrappingWidth="316.03369140625">
+         <font>
+            <Font name="Hannotate SC Bold" size="38.0" />
+         </font></Text>
+      <Text fill="#00ff0e" layoutX="364.0" layoutY="104.0" strokeType="OUTSIDE" strokeWidth="0.0" text="A Typing Game" textAlignment="CENTER" wrappingWidth="118.03369140625">
+         <font>
+            <Font name="Baskerville" size="11.0" />
+         </font>
+      </Text>
+      <ChoiceBox layoutX="348.0" layoutY="172.0" prefWidth="150.0" />
+      <CheckBox layoutX="60.0" layoutY="354.0" mnemonicParsing="false" text="Sound Off" textFill="#ee0101">
+         <font>
+            <Font size="10.0" />
+         </font></CheckBox>
+      <Text fill="RED" layoutX="364.0" layoutY="192.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Lesson" textAlignment="CENTER" wrappingWidth="118.03369140625">
          <font>
             <Font size="18.0" />
-         </font></Text>
-      <Label fx:id="myMessage" layoutX="339.0" layoutY="203.0" prefHeight="21.0" prefWidth="26.0" text="#" textAlignment="CENTER" />
+         </font>
+      </Text>
+      <CheckBox layoutX="80.0" layoutY="201.0" mnemonicParsing="false" text="Easy" textFill="#ee0101">
+         <font>
+            <Font size="10.0" />
+         </font>
+      </CheckBox>
+      <CheckBox layoutX="80.0" layoutY="222.0" mnemonicParsing="false" text="intermediate" textFill="#ee0101">
+         <font>
+            <Font size="10.0" />
+         </font>
+      </CheckBox>
+      <CheckBox layoutX="80.0" layoutY="243.0" mnemonicParsing="false" text="Expeert " textFill="#ee0101">
+         <font>
+            <Font size="10.0" />
+         </font>
+      </CheckBox>
+      <Text fill="RED" layoutX="29.0" layoutY="193.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Difficulty" textAlignment="CENTER" wrappingWidth="199.0">
+         <font>
+            <Font name="Hannotate SC Bold" size="24.0" />
+         </font>
+      </Text>
+      <ChoiceBox layoutX="348.0" layoutY="224.0" prefWidth="150.0" />
+      <Text fill="RED" layoutX="364.0" layoutY="244.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Theme" textAlignment="CENTER" wrappingWidth="118.03369140625">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Text>
    </children>
 </AnchorPane>

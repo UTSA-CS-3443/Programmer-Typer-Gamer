@@ -13,6 +13,9 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader; 
 
 
+/*
+ * Starts Login screen, user enters "user" to login
+ */
 
 public class Main extends Application {
 	

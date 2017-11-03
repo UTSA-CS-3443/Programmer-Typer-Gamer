@@ -1,7 +1,7 @@
 package controller;
 
+import java.awt.Button;
 import java.util.Random;
-
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -18,9 +18,18 @@ public class MainController {
 	@FXML
 	private TextField user; 
 	@FXML
-	private Label myMessage; 
+	private Label myMessage;
+	@FXML
+	private boolean start = true; 
+
 	
-	
+	/*
+	 * if login successful, Main Menu opens. 
+	 * 
+	 * Notice: login screen remains open. We will have to close it after 
+	 * "successful" login. 
+	 * 
+	 */
 	
 	public void Login(ActionEvent event) throws Exception {
 		//User login = "user"
@@ -28,11 +37,11 @@ public class MainController {
 			status.setText("Login Success");
 			
 			
-			
+			//New Stage object called secondaryStage 
 			Stage secondaryStage = new Stage(); 
-			Parent root = FXMLLoader.load(getClass().getResource("/view/Main.fxml"));
+			Parent root = FXMLLoader.load(getClass().getResource("/view/Main.fxml")); // Loads Main Menu fxml 
 			Scene scene = new Scene(root); 
-			scene.getStylesheets().add(getClass().getResource("/model/application.css").toExternalForm());
+			scene.getStylesheets().add(getClass().getResource("/model/application.css").toExternalForm()); // adds style from css
 			secondaryStage.setTitle("Programmer-Typer-Gamer");
 			secondaryStage.setScene(scene);
 			secondaryStage.show();
@@ -42,14 +51,7 @@ public class MainController {
 			status.setText("Login Failed");
 		}
 	}
-
-
 	
-	public void generateRandom(ActionEvent event) {
-		Random rand = new Random();
-		int myRand = rand.nextInt(1000) + 1; 
-	    myMessage.setText(Integer.toString(myRand)); 
-	}
-} 
+}
 
 
