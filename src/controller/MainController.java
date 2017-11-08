@@ -52,6 +52,17 @@ public class MainController {
 		}
 	}
 	
+	//GameStage
+	public void Game(ActionEvent event) throws Exception {		
+	
+		Stage gameStage = new Stage(); 
+		Parent root = FXMLLoader.load(getClass().getResource("/view/Game.fxml")); // Loads Main Menu fxml 
+		Scene scene = new Scene(root); 
+		scene.getStylesheets().add(getClass().getResource("/model/application.css").toExternalForm()); // adds style from css
+		gameStage.setTitle("Programmer-Typer-Gamer");
+		gameStage.setScene(scene);
+		gameStage.show();
+	}
 }
 
 

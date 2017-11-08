@@ -9,12 +9,12 @@
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.MainController">
    <children>
-      <Button layoutX="245.0" layoutY="282.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="110.0" text="Start" textFill="RED">
+      <Button layoutX="245.0" layoutY="282.0" mnemonicParsing="false" onAction="#Game" prefHeight="45.0" prefWidth="110.0" text="Start" textFill="RED">
          <font>
             <Font size="24.0" />
          </font></Button>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="75.0" layoutX="72.0" layoutY="33.0" stroke="BLACK" strokeType="INSIDE" width="461.0" />
-      <Text fill="RED" layoutX="145.0" layoutY="80.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Keyboard Hero"  textAlignment="CENTER" wrappingWidth="316.03369140625">
+      <Text fill="RED" layoutX="145.0" layoutY="80.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Keyboard Hero" textAlignment="CENTER" wrappingWidth="316.03369140625">
          <font>
             <Font name="Hannotate SC Bold" size="38.0" />
          </font></Text>
@@ -33,21 +33,6 @@
             <Font size="18.0" />
          </font>
       </Text>
-      <CheckBox layoutX="80.0" layoutY="201.0" mnemonicParsing="false" text="Easy" textFill="#ee0101">
-         <font>
-            <Font size="10.0" />
-         </font>
-      </CheckBox>
-      <CheckBox layoutX="80.0" layoutY="222.0" mnemonicParsing="false" text="intermediate" textFill="#ee0101">
-         <font>
-            <Font size="10.0" />
-         </font>
-      </CheckBox>
-      <CheckBox layoutX="80.0" layoutY="243.0" mnemonicParsing="false" text="Expeert " textFill="#ee0101">
-         <font>
-            <Font size="10.0" />
-         </font>
-      </CheckBox>
       <Text fill="RED" layoutX="29.0" layoutY="193.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Difficulty" textAlignment="CENTER" wrappingWidth="199.0">
          <font>
             <Font name="Hannotate SC Bold" size="24.0" />
@@ -59,5 +44,8 @@
             <Font size="18.0" />
          </font>
       </Text>
+      <RadioButton layoutX="72.0" layoutY="201.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="64.0" text="Easy" textFill="RED" />
+      <RadioButton layoutX="72.0" layoutY="229.0" mnemonicParsing="false" text="Intermediate" textFill="RED" />
+      <RadioButton layoutX="72.0" layoutY="257.0" mnemonicParsing="false" text="Expert" textFill="RED" />
    </children>
 </AnchorPane>

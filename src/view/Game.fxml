@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane prefHeight="421.0" prefWidth="526.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="controller.MainController">
+   <children>
+      <Pane layoutX="-1.0" layoutY="-5.0" prefHeight="437.0" prefWidth="531.0" style="-fx-background-color: #0077BE;" />
+      <ImageView fitHeight="105.0" fitWidth="176.0" layoutX="350.0" layoutY="266.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Images/shark.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="177.0" layoutY="118.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Images/shark.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="252.0" layoutY="141.0" prefHeight="17.0" prefWidth="35.0" text="Car" textFill="WHITE">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="402.0" layoutY="290.0" prefHeight="23.0" prefWidth="72.0" text="running" textFill="WHITE">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <ProgressBar layoutX="178.0" layoutY="37.0" prefWidth="200.0" progress="0.0" />
+      <Text layoutX="231.0" layoutY="19.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Life" textAlignment="CENTER" wrappingWidth="91.7119140625">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Text>
+      <Ellipse fill="#ff1f1f" layoutX="44.0" layoutY="199.0" radiusX="21.0" radiusY="48.0" stroke="BLACK" strokeType="INSIDE" />
+      <Circle fill="#1fff86" layoutX="44.0" layoutY="141.0" radius="21.0" stroke="BLACK" strokeType="INSIDE" />
+      <Text layoutX="32.0" layoutY="156.0" strokeType="OUTSIDE" strokeWidth="0.0" text="----" />
+      <Circle layoutX="32.0" layoutY="136.0" radius="7.0" stroke="BLACK" strokeType="INSIDE" />
+      <Circle layoutX="57.0" layoutY="136.0" radius="7.0" stroke="BLACK" strokeType="INSIDE" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#a91fff" height="80.0" layoutX="16.0" layoutY="159.0" stroke="BLACK" strokeType="INSIDE" width="14.0" />
+      <Ellipse fill="#2a1fff" layoutX="44.0" layoutY="199.0" radiusX="7.0" radiusY="35.0" stroke="BLACK" strokeType="INSIDE" />
+   </children>
+</AnchorPane>
