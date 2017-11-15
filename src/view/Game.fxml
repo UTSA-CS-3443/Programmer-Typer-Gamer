@@ -8,10 +8,12 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-
-<AnchorPane prefHeight="421.0" prefWidth="526.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="controller.MainController">
+<AnchorPane prefHeight="421.0" prefWidth="526.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.MainController">
    <children>
-      <Pane layoutX="-1.0" layoutY="-5.0" prefHeight="437.0" prefWidth="531.0" style="-fx-background-color: #0077BE;" />
+      <Pane layoutX="-1.0" layoutY="-5.0" prefHeight="429.0" prefWidth="600.0" style="-fx-background-color: #0077BE;">
+         <children>
+            <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#Pause" prefHeight="7.0" prefWidth="57.0" text="Pause" />
+         </children></Pane>
       <ImageView fitHeight="105.0" fitWidth="176.0" layoutX="350.0" layoutY="266.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../Images/shark.png" />

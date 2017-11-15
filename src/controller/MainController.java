@@ -6,6 +6,7 @@ import java.util.Random;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
@@ -33,35 +34,51 @@ public class MainController {
 	
 	public void Login(ActionEvent event) throws Exception {
 		//User login = "user"
-		if(user.getText().equals("user")) {
-			status.setText("Login Success");
+
 			
 			
 			//New Stage object called secondaryStage 
-			Stage secondaryStage = new Stage(); 
 			Parent root = FXMLLoader.load(getClass().getResource("/view/Main.fxml")); // Loads Main Menu fxml 
 			Scene scene = new Scene(root); 
 			scene.getStylesheets().add(getClass().getResource("/model/application.css").toExternalForm()); // adds style from css
-			secondaryStage.setTitle("Programmer-Typer-Gamer");
-			secondaryStage.setScene(scene);
-			secondaryStage.show();
+			Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+			window.setScene(scene); 
+			window.show(); 
+
 
 		
-		}else {
-			status.setText("Login Failed");
-		}
+	
 	}
 	
 	//GameStage
 	public void Game(ActionEvent event) throws Exception {		
+
+		Parent gameViewParent = FXMLLoader.load(getClass().getResource("/view/Game.fxml")); // Loads Main Menu fxml 
+		Scene gameViewScene = new Scene(gameViewParent);
+		
+		Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+		window.setScene(gameViewScene);
+		window.show(); 
+	}
 	
-		Stage gameStage = new Stage(); 
-		Parent root = FXMLLoader.load(getClass().getResource("/view/Game.fxml")); // Loads Main Menu fxml 
-		Scene scene = new Scene(root); 
-		scene.getStylesheets().add(getClass().getResource("/model/application.css").toExternalForm()); // adds style from css
-		gameStage.setTitle("Programmer-Typer-Gamer");
-		gameStage.setScene(scene);
-		gameStage.show();
+	public void Pause(ActionEvent event) throws Exception {		
+
+		Parent pauseViewParent = FXMLLoader.load(getClass().getResource("/view/PauseMenu.fxml")); // Loads Main Menu fxml 
+		Scene pauseViewScene = new Scene(pauseViewParent);
+		
+		Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+		window.setScene(pauseViewScene);
+		window.show(); 
+	}
+	
+	public void ChangeDifficulty(ActionEvent event) throws Exception {		
+
+		Parent DiffViewParent = FXMLLoader.load(getClass().getResource("/view/ChangeDifficulty.fxml")); // Loads Main Menu fxml 
+		Scene DiffViewScene = new Scene(DiffViewParent);
+		
+		Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+		window.setScene(DiffViewScene);
+		window.show(); 
 	}
 }
 
