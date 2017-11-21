@@ -20,6 +20,7 @@ public class LoginController implements EventHandler<ActionEvent> {
 	@Override
 	public void handle(ActionEvent event) {
 		Button b = (Button)event.getSource();
+		
 		//this.calc.update( b.getText() );
 		//this.output.setText( calc.getValue() );
 		
