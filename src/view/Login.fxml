@@ -48,7 +48,7 @@
                   <Pane prefHeight="200.0" prefWidth="200.0">
                      <children>
                         <Line endX="600.0" />
-                        <Text layoutX="7.0" layoutY="18.0" strokeType="OUTSIDE" strokeWidth="0.0" text="CS - 3443 (Application Programming)                                                                                               Keyboard Hero is a game developed by UTSA Students. The goal is to help the upcoming generation of students learn how to type in a fun interactive manner.  All rights reserved to UTSA CS Computer Science Department. Copying/Imitating this application may cause legal issues. " wrappingWidth="585.21875">
+                        <Text layoutX="7.0" layoutY="18.0" strokeType="OUTSIDE" strokeWidth="0.0" text="CS - 3443 (Application Programming)                                                                                               Keyboard Hero is a game developed by UTSA Students. The goal is to help the upcoming generation of students learn how to type in a fun interactive manner.  All rights reserved to UTSA  Computer Science Department. Copying/Imitating this application may cause legal issues. " wrappingWidth="585.21875">
                            <font>
                               <Font size="12.0" />
                            </font></Text>
