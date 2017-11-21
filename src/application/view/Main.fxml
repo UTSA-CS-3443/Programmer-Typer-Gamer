@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.MainController">
+   <children>
+      <ImageView fitHeight="400.0" fitWidth="600.0">
+         <image>
+            <Image url="@../../Images/nightsky.jpg" />
+         </image>
+      </ImageView>
+      <BorderPane prefHeight="400.0" prefWidth="600.0">
+         <left>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" height="150.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="5.0" width="170.0" BorderPane.alignment="CENTER">
+               <BorderPane.margin>
+                  <Insets left="20.0" />
+               </BorderPane.margin>
+            </Rectangle>
+         </left>
+         <right>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" height="150.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="5.0" width="170.0" BorderPane.alignment="CENTER">
+               <BorderPane.margin>
+                  <Insets right="20.0" />
+               </BorderPane.margin>
+            </Rectangle>
+         </right>
+         <top>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" height="75.0" stroke="#fdfdfd" strokeType="INSIDE" strokeWidth="5.0" width="500.0" BorderPane.alignment="CENTER">
+               <BorderPane.margin>
+                  <Insets top="20.0" />
+               </BorderPane.margin>
+            </Rectangle>
+         </top>
+      </BorderPane>
+      <BorderPane prefHeight="400.0" prefWidth="600.0">
+         <left>
+            <VBox prefHeight="150.0" prefWidth="170.0" BorderPane.alignment="CENTER">
+               <children>
+                  <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Difficulty">
+                     <font>
+                        <Font name="Consolas Bold" size="24.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets left="40.0" top="10.0" />
+                     </VBox.margin>
+                  </Text>
+                  <RadioButton contentDisplay="CENTER" mnemonicParsing="false" prefHeight="18.0" prefWidth="64.0" selected="true" text="Easy" textFill="WHITE">
+                     <VBox.margin>
+                        <Insets left="40.0" top="10.0" />
+                     </VBox.margin>
+                     <toggleGroup>
+                        <ToggleGroup fx:id="difficultyRadioButtons" />
+                     </toggleGroup>
+                     <font>
+                        <Font name="Consolas" size="14.0" />
+                     </font>
+                  </RadioButton>
+                  <RadioButton mnemonicParsing="false" text="Intermediate" textFill="WHITE" toggleGroup="$difficultyRadioButtons">
+                     <VBox.margin>
+                        <Insets left="40.0" top="10.0" />
+                     </VBox.margin>
+                     <font>
+                        <Font name="Consolas" size="14.0" />
+                     </font>
+                  </RadioButton>
+                  <RadioButton mnemonicParsing="false" text="Expert" textFill="WHITE" toggleGroup="$difficultyRadioButtons">
+                     <VBox.margin>
+                        <Insets left="40.0" top="10.0" />
+                     </VBox.margin>
+                     <font>
+                        <Font name="Consolas" size="14.0" />
+                     </font>
+                  </RadioButton>
+               </children>
+               <BorderPane.margin>
+                  <Insets top="70.0" />
+               </BorderPane.margin>
+            </VBox>
+         </left>
+         <top>
+            <VBox alignment="TOP_CENTER" BorderPane.alignment="CENTER">
+               <children>
+                  <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <Text fill="WHITE" strokeLineCap="ROUND" strokeType="OUTSIDE" strokeWidth="0.0" text="Keyboard Hero">
+                           <font>
+                              <Font name="Harlow Solid Italic" size="50.0" />
+                           </font>
+                        </Text>
+                        <Text fill="#00ff0e" strokeType="OUTSIDE" strokeWidth="0.0" text="A Typing Game" textAlignment="CENTER" underline="true" wrappingWidth="118.03369140625">
+                           <font>
+                              <Font name="Consolas Bold" size="13.0" />
+                           </font>
+                        </Text>
+                     </children>
+                  </HBox>
+               </children>
+               <BorderPane.margin>
+                  <Insets top="5.0" />
+               </BorderPane.margin>
+            </VBox>
+         </top>
+         <right>
+            <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER_LEFT">
+               <children>
+                  <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Themes">
+                     <font>
+                        <Font name="Consolas Bold" size="24.0" />
+                     </font>
+                  </Text>
+                  <RadioButton contentDisplay="CENTER" mnemonicParsing="false" selected="true" text="Water" textFill="WHITE">
+                     <toggleGroup>
+                        <ToggleGroup fx:id="themeRadioButtons" />
+                     </toggleGroup>
+                     <VBox.margin>
+                        <Insets top="10.0" />
+                     </VBox.margin>
+                     <font>
+                        <Font name="Consolas" size="14.0" />
+                     </font>
+                  </RadioButton>
+                  <RadioButton mnemonicParsing="false" text="Desert" textFill="WHITE" toggleGroup="$themeRadioButtons">
+                     <VBox.margin>
+                        <Insets top="10.0" />
+                     </VBox.margin>
+                     <font>
+                        <Font name="Consolas" size="14.0" />
+                     </font>
+                  </RadioButton>
+                  <RadioButton mnemonicParsing="false" text="Space" textFill="WHITE" toggleGroup="$themeRadioButtons">
+                     <VBox.margin>
+                        <Insets top="10.0" />
+                     </VBox.margin>
+                     <font>
+                        <Font name="Consolas" size="14.0" />
+                     </font>
+                  </RadioButton>
+               </children>
+               <BorderPane.margin>
+                  <Insets right="70.0" top="80.0" />
+               </BorderPane.margin>
+            </VBox>
+         </right>
+         <bottom>
+            <CheckBox mnemonicParsing="false" text="Sound Off" textFill="WHITE" BorderPane.alignment="TOP_CENTER">
+               <font>
+                  <Font size="10.0" />
+               </font>
+               <BorderPane.margin>
+                  <Insets bottom="20.0" />
+               </BorderPane.margin>
+            </CheckBox>
+         </bottom>
+         <center>
+            <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+               <children>
+                  <ImageView fitHeight="200.0" fitWidth="150.0" nodeOrientation="INHERIT" opacity="0.6" preserveRatio="true">
+                     <image>
+                        <Image url="@../../Images/source.gif" />
+                     </image>
+                  </ImageView>
+                  <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#Login" prefHeight="45.0" prefWidth="110.0" text="Start">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Button>
+               </children>
+            </VBox>
+         </center>
+      </BorderPane>
+   </children>
+</AnchorPane>
