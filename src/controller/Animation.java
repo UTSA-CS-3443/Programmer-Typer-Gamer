@@ -21,7 +21,7 @@ public class Animation {
 	cir.setLayoutY(50);
 	
 	TranslateTransition transition = new TranslateTransition(); 
-	transition.setDuration(Duration.seconds(3));;
+	transition.setDuration(Duration.seconds(3));
 	transition.setToX(-650);
 	transition.setAutoReverse(true);
 	transition.setCycleCount(javafx.animation.Animation.INDEFINITE);

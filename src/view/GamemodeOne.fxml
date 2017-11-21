@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.canvas.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="421.0" prefWidth="526.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.MainController">
+   <children>
+      <Canvas fx:id="canvas" height="720.0" width="1280.0" />
+      <Button layoutX="14.0" layoutY="681.0" mnemonicParsing="false" onAction="#Pause" prefHeight="7.0" prefWidth="57.0" text="Pause" />
+      <TextField fx:id="wordField" layoutX="80.0" layoutY="681.0" onAction="#onEnter" prefHeight="25.0" prefWidth="392.0" />
+   </children>
+</AnchorPane>

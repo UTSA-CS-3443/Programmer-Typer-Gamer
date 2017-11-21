@@ -12,11 +12,14 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.canvas.Canvas;
+import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
-import javafx.stage.Stage; 
+import javafx.stage.Stage;
+import model.GamemodeOne; 
 
 public class MainController {
 	@FXML
@@ -27,6 +30,13 @@ public class MainController {
 	private Label myMessage;
 	@FXML
 	private boolean start = true; 
+	@FXML
+	public Canvas canvas;
+	@FXML
+	public TextField wordField;
+	
+	public GraphicsContext gc;
+	public GamemodeOne gm;
 	
 
 	
@@ -57,15 +67,21 @@ public class MainController {
 	}
 	
 	//GameStage
-	public void Game(ActionEvent event) throws Exception {		
-
-		Parent gameViewParent = FXMLLoader.load(getClass().getResource("/view/Game.fxml")); // Loads Main Menu fxml 
+	public void Game(ActionEvent event) throws Exception {
+		Parent gameViewParent = FXMLLoader.load(getClass().getResource("/view/GamemodeOne.fxml")); // Loads Main Menu fxml 
 		Scene gameViewScene = new Scene(gameViewParent);
+		
+		gm = new GamemodeOne(((Canvas) gameViewScene.lookup("#canvas")).getGraphicsContext2D());
+		System.out.println(gm);
 		
 		Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
 		window.setScene(gameViewScene);
 		window.show(); 
-		Animation.Move(window);
+	}
+	
+	public void onEnter(ActionEvent event) {
+		System.out.println(event);
+		gm.checkWord("test");
 	}
 	
 	public void Pause(ActionEvent event) throws Exception {		
