@@ -1,14 +1,20 @@
 package application.model;
 
+import java.io.IOException;
 import java.util.concurrent.CopyOnWriteArrayList;
 
+import application.controller.GameController;
 import javafx.animation.AnimationTimer;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.canvas.GraphicsContext;
+import javafx.stage.Stage;
 
 public class GamemodeOne {
 	private int counter = 0;
 	private CopyOnWriteArrayList<Shark> sharks;
-	
 	public static double DIFFICULTY_VALUE = 500; //The value used to change the difficulty. 
 	
 	public GamemodeOne(GraphicsContext gc) {
@@ -41,6 +47,9 @@ public class GamemodeOne {
 		counter++;
 		if(sharks.isEmpty() == false) {
 			for(Shark shark: sharks) {
+				if(shark.getX() < -300) {
+					sharks.remove(shark);
+				}
 				shark.update();
 			}
 		}

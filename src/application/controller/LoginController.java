@@ -52,6 +52,7 @@ public class LoginController implements EventHandler<ActionEvent> {
 		scene.getStylesheets().add(getClass().getResource("/application/application.css").toExternalForm()); // adds style from css
 		Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
 		window.setScene(scene); 
+		window.centerOnScreen();
 		window.show();
 		
 	}

@@ -1,10 +1,11 @@
-package application.controller;
+ package application.controller;
 
 import application.model.GamemodeOne;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.canvas.Canvas;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 
 public class GameController implements EventHandler<ActionEvent>{
