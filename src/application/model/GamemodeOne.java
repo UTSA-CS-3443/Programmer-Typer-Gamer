@@ -14,7 +14,7 @@ public class GamemodeOne {
 	public GamemodeOne(GraphicsContext gc) {
 		WordReader randomWord = new WordReader();
 		sharks = new CopyOnWriteArrayList<Shark>();
-		sharks.add(new Shark(1300, 50, WordReader.getRandomWord()));
+		sharks.add(new Shark(1300, 475, WordReader.getRandomWord()));
 		
 		new AnimationTimer() {
 
