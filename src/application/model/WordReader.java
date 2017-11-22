@@ -4,6 +4,7 @@ import java.io.BufferedReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
+import java.util.Random;
 
 
 public class WordReader {
@@ -87,5 +88,11 @@ public class WordReader {
 			return "NO-DATA";
 		// multiply Math.random by the size of words ArrayList should return a valid index of the list
 		return words.get((int) (Math.random() * words.size()));
+	}
+	
+	public static double getRandomSpawn() {
+		Random rand = new Random(); 
+		double spawn = rand.nextInt(451) + 25; 
+		return spawn;
 	}
 }
