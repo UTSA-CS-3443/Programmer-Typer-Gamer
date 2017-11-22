@@ -12,6 +12,7 @@ public class GamemodeOne {
 	public int DIFFICULTY_VALUE = 500; //The value used to change the difficulty. 
 	
 	public GamemodeOne(GraphicsContext gc) {
+		WordReader randomWord = new WordReader();
 		sharks = new CopyOnWriteArrayList<Shark>();
 		sharks.add(new Shark(1300, 50, WordReader.getRandomWord()));
 		
@@ -45,6 +46,13 @@ public class GamemodeOne {
 		}
 		else {
 			sharks.add(new Shark(1300, 50, WordReader.getRandomWord()));
+			counter = 0;
+			DIFFICULTY_VALUE--;
+		}
+		if(counter % DIFFICULTY_VALUE == 0) {
+			sharks.add(new Shark(1300, 50, WordReader.getRandomWord()));
+			counter = 0 ;
+			DIFFICULTY_VALUE--;
 		}
 	}
 	
