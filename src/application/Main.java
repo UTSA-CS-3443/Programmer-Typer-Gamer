@@ -28,6 +28,7 @@ public class Main extends Application {
 	
 	@Override
 	public void start(Stage primaryStage) {
+		
 		try {
 			String musicFile = "src/soundTrack/powerMove.mp3";     // For example
 

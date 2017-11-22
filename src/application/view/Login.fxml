@@ -30,7 +30,7 @@
                <children>
                   <Button alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#handle" prefHeight="75.0" prefWidth="520.0">
                      <graphic>
-                        <Label alignment="CENTER" contentDisplay="CENTER" text="Label">
+                        <Label fx:id="user0" alignment="CENTER" contentDisplay="CENTER" text="Label">
                            <graphic>
                               <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#826666" height="75.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="5.0" width="520.0" />
                            </graphic>
@@ -47,7 +47,7 @@
                   </Separator>
                   <Button alignment="CENTER" contentDisplay="CENTER" layoutX="20.0" layoutY="150.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#handle" prefHeight="75.0" prefWidth="520.0">
                      <graphic>
-                        <Label alignment="CENTER" contentDisplay="CENTER" text="Label">
+                        <Label fx:id="user1" alignment="CENTER" contentDisplay="CENTER" text="Label">
                            <graphic>
                               <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#826666" height="75.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="5.0" width="520.0" />
                            </graphic>
@@ -64,7 +64,7 @@
                   </Separator>
                   <Button alignment="CENTER" contentDisplay="CENTER" layoutX="20.0" layoutY="190.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#handle" prefHeight="75.0" prefWidth="520.0">
                      <graphic>
-                        <Label alignment="CENTER" contentDisplay="CENTER" text="Label">
+                        <Label fx:id="user2" alignment="CENTER" contentDisplay="CENTER" text="Label">
                            <graphic>
                               <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#826666" height="75.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="5.0" width="520.0" />
                            </graphic>
@@ -81,7 +81,7 @@
                   </Separator>
                   <Button alignment="CENTER" contentDisplay="CENTER" layoutX="20.0" layoutY="230.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#handle" prefHeight="75.0" prefWidth="520.0">
                      <graphic>
-                        <Label alignment="CENTER" contentDisplay="CENTER" text="Label">
+                        <Label fx:id="user3" alignment="CENTER" contentDisplay="CENTER" text="Label">
                            <graphic>
                               <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#826666" height="75.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="5.0" width="520.0" />
                            </graphic>
