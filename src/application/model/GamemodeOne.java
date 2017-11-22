@@ -9,7 +9,7 @@ public class GamemodeOne {
 	private int counter = 0;
 	private CopyOnWriteArrayList<Shark> sharks;
 	
-	public int DIFFICULTY_VALUE = 500; //The value used to change the difficulty. 
+	public static double DIFFICULTY_VALUE = 500; //The value used to change the difficulty. 
 	
 	public GamemodeOne(GraphicsContext gc) {
 		WordReader randomWord = new WordReader();
@@ -45,14 +45,14 @@ public class GamemodeOne {
 			}
 		}
 		else {
-			sharks.add(new Shark(1300, 50, WordReader.getRandomWord()));
-			counter = 0;
-			DIFFICULTY_VALUE--;
+			sharks.add(new Shark(1300, WordReader.getRandomSpawn(), WordReader.getRandomWord()));
+			counter = 1;
+			DIFFICULTY_VALUE = DIFFICULTY_VALUE - .1;
 		}
-		if(counter % DIFFICULTY_VALUE == 0) {
-			sharks.add(new Shark(1300, 50, WordReader.getRandomWord()));
-			counter = 0 ;
-			DIFFICULTY_VALUE--;
+		if(counter % Math.rint(DIFFICULTY_VALUE) == 0 ) {
+			sharks.add(new Shark(1300, WordReader.getRandomSpawn(), WordReader.getRandomWord()));
+			counter = 1;
+			DIFFICULTY_VALUE = DIFFICULTY_VALUE - .1;
 		}
 	}
 	

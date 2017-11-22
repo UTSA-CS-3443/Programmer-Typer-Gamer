@@ -18,7 +18,7 @@ public class WordReader {
 	//These should be global variables that could be accessed from other files
 	public static boolean easy = false;
 	public static boolean medium = false;
- 	public boolean hard = false; //should this be static?
+ 	public static boolean hard = false; //should this be static?
 
 	// ArrayList of strings which will be our words
 	private static ArrayList<String> words = new ArrayList<String>();
@@ -27,7 +27,7 @@ public class WordReader {
 		
 		//easy = true; //test boolean
 		//medium = true;
-		hard = true;
+		//hard = true;
 		
 		if(easy == true) {
 		 try (InputStream in = getClass().getResourceAsStream(easyfile);  //use ResourceAsStream rather than static methods

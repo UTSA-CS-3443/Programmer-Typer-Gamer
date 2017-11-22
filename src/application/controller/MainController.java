@@ -3,6 +3,8 @@ package application.controller;
 import java.awt.Button;
 import java.util.Random;
 
+import application.model.GamemodeOne;
+import application.model.WordReader;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -12,6 +14,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
+import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage; 
 
@@ -24,7 +27,15 @@ public class MainController implements EventHandler<ActionEvent> {
 	private Label myMessage;
 	@FXML
 	private boolean start = true; 
-
+	@FXML
+	private RadioButton easyBut;
+	@FXML
+	private RadioButton mediumBut;
+	@FXML
+	private RadioButton hardBut;
+	private int easyNum = 1000;
+	private int mediumNum = 750;
+	private int hardNum = 500;
 	
 	/*
 	 * if login successful, Main Menu opens. 
@@ -44,6 +55,24 @@ public class MainController implements EventHandler<ActionEvent> {
 	}
 	
 	public void Login(ActionEvent event) throws Exception {
+		if(easyBut.isSelected() == true) {
+			GamemodeOne.DIFFICULTY_VALUE = easyNum;
+			WordReader.easy = true;
+			WordReader.medium = false;
+			WordReader.hard = false;
+		}
+		if(mediumBut.isSelected() == true) {
+			GamemodeOne.DIFFICULTY_VALUE = mediumNum;
+			WordReader.easy = false;
+			WordReader.medium = true;
+			WordReader.hard = false;
+		}
+		if(hardBut.isSelected() == true) {
+			GamemodeOne.DIFFICULTY_VALUE = hardNum;
+			WordReader.easy = false;
+			WordReader.medium = false;
+			WordReader.hard = true;
+		}
 		Parent root = FXMLLoader.load(getClass().getResource("/application/view/Login.fxml")); // Loads Main Menu fxml 
 		Scene scene = new Scene(root); 
 		scene.getStylesheets().add(getClass().getResource("/application/application.css").toExternalForm()); // adds style from css
