@@ -1,7 +1,8 @@
 package application.controller;
 
-import java.io.IOException;
+import java.io.*;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 import application.model.*;
 
@@ -20,19 +21,69 @@ public class LoginController implements EventHandler<ActionEvent> {
 	
 	@FXML
 	private Label user0, user1, user2, user3;
+	private ArrayList<Label> userArr;
 	private LoginModel logModel;
 	
 	public LoginController() {
 		super();
 		this.logModel = new LoginModel();
 		
-		ArrayList<String> userArr = new ArrayList<String>();
-		userArr = logModel.getNameArr();
+		user0 = new Label();
+		user1 = new Label();
+		user2 = new Label();
+		user3 = new Label();
 		
-//		this.user0.setText(userArr.get(0));
-//		this.user1.setText(userArr.get(1));
-//		this.user2.setText(userArr.get(2));
-//		this.user3.setText(userArr.get(3));
+		for (int i = 0; i < 4; i++) {
+			String fileName = "src/userFiles/user" + i + ".txt";
+			File userFile = new File(fileName);
+				
+			// init
+			if (!userFile.exists()) {
+				try {
+					userFile.createNewFile();
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+			}
+			// setting label names
+			String line = null;
+			try {
+	            Scanner sc = new Scanner(userFile);
+	            
+	            if (!sc.hasNextLine()) {
+	            	if (i == 0) {
+	            		// update
+	            	}
+	            	if (i == 1) {
+	            		// update
+	            	}
+	            	if (i == 2) {
+	            		// update
+	            	}
+	            	if (i == 3) {
+	            		// update
+	            	}
+	            }
+	            else {
+	            	while((line = sc.nextLine()) != null) {
+	            		// while the file does have stuff inside
+	            		// update
+	            	}
+	            }   
+       
+	        }
+	        catch(FileNotFoundException e) {
+	            System.out.println("Unable to open file '" + fileName + "'");
+	            e.printStackTrace();
+	        }
+	        catch(IOException e) {
+	            System.out.println("Error reading file '" + fileName + "'");
+	            e.printStackTrace();
+	        }
+			
+			
+		}
+		
 	}
 
 	@Override

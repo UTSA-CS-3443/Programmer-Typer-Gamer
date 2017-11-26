@@ -19,7 +19,7 @@ public class GamemodeTwo {
 	Media sound2 = new Media(new File(musicFile).toURI().toString());
 	MediaPlayer explosion = new MediaPlayer(sound2);
 	
-	//G.B.
+	//G.B. lives
 	private int lives = 3; //start with 3 lives
 	
 	//G.B. points constants
@@ -60,10 +60,19 @@ public class GamemodeTwo {
 				//System.out.println("Found shark with word " + input + ". Removing...");
 				//aliens.remove(alien);
 				tru = true;
+				
+				//G.B. score
+				score.set(score.get() + (int)(scoreModifier * POINTS_PER_WORD));
+				scoreModifier += BONUS_MODIFIER;
+				
+			//if you enter the word wrong
+			} else {
+				scoreModifier = 1.0f; //reset the Bonus
 
 			}
 			System.out.println(score);
 			System.out.println("scoreModifier " + scoreModifier); //G.B. score test
+			System.out.println("push");
 		}
 	}
 
