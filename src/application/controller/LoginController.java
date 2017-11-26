@@ -1,6 +1,6 @@
 package application.controller;
 
-import java.io.IOException;
+import java.io.*;
 import java.util.ArrayList;
 
 import application.model.*;
@@ -20,19 +20,66 @@ public class LoginController implements EventHandler<ActionEvent> {
 	
 	@FXML
 	private Label user0, user1, user2, user3;
+	private ArrayList<Label> userArr;
 	private LoginModel logModel;
 	
 	public LoginController() {
 		super();
 		this.logModel = new LoginModel();
 		
-		ArrayList<String> userArr = new ArrayList<String>();
-		userArr = logModel.getNameArr();
 		
-//		this.user0.setText(userArr.get(0));
-//		this.user1.setText(userArr.get(1));
-//		this.user2.setText(userArr.get(2));
-//		this.user3.setText(userArr.get(3));
+		for (int i = 0; i < 4; i++) {
+			String fileName = "src/userFiles/user" + i + ".txt";
+			File userFile = new File(fileName);
+				
+			// init
+			if (userFile.exists()) {
+				break;
+			}
+			else if (!userFile.exists()) {
+				try {
+					userFile.createNewFile();
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+			}
+			else {
+				System.out.println("user file is not initialized correctly");
+			}
+			
+			// setting label names
+			String line = null;
+			try {
+	            FileReader fileReader = 
+	                new FileReader(fileName);
+
+	            // Always wrap FileReader in BufferedReader.
+	            BufferedReader bufferedReader = 
+	                new BufferedReader(fileReader);
+	            
+	            if (bufferedReader.readLine() == null) {
+	            	
+	            	continue;
+	            }
+
+	            while((line = bufferedReader.readLine()) != null) {
+	                System.out.println(line);
+	            }   
+
+	            // Always close files.
+	            bufferedReader.close();         
+	        }
+	        catch(FileNotFoundException e) {
+	            System.out.println("Unable to open file '" + fileName + "'");
+	            e.printStackTrace();
+	        }
+	        catch(IOException e) {
+	            System.out.println("Error reading file '" + fileName + "'");
+	            e.printStackTrace();
+	        }
+			
+			
+		}
 	}
 
 	//@Override
