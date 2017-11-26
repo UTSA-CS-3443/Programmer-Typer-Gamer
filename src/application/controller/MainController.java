@@ -5,6 +5,7 @@ import java.util.Random;
 
 import application.model.GamemodeOne;
 import application.model.WordReader;
+import javafx.beans.property.SimpleIntegerProperty;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
