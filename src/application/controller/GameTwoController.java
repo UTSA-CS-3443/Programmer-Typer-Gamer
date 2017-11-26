@@ -8,7 +8,6 @@ import javafx.scene.canvas.Canvas;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 
-
 public class GameTwoController implements EventHandler<ActionEvent>{
 	
 	private GamemodeTwo mode;

@@ -98,7 +98,7 @@ public class WordReader {
 	
 	public static double getRandomAlienSpawn() {
 		Random rand = new Random();
-		double spawn = rand.nextInt(881) + 200;
+		double spawn = rand.nextInt(850) + 200;
 		return spawn;
 	}
 }

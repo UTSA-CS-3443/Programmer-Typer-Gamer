@@ -9,11 +9,12 @@ public class GamemodeTwo {
 	private int counter = 0;
 	private CopyOnWriteArrayList<Alien> aliens;
 	public static double DIFFICULTY_VALUE = 500; //The value used to change the difficulty. 
+	private boolean tru = false;
 	
 	public GamemodeTwo(GraphicsContext gc) {
 		WordReader randomWord = new WordReader();
 		aliens = new CopyOnWriteArrayList<Alien>();
-		aliens.add(new Alien(WordReader.getRandomAlienSpawn(), -50, WordReader.getRandomWord()));
+		aliens.add(new Alien(WordReader.getRandomAlienSpawn(), -175, WordReader.getRandomWord()));
 	
 		new AnimationTimer() {
 
@@ -31,7 +32,8 @@ public class GamemodeTwo {
 		for(Alien alien: aliens) {
 			if(alien.getWord().toLowerCase().equals(input.toLowerCase())) {
 				System.out.println("Found shark with word " + input + ". Removing...");
-				aliens.remove(alien);
+				//aliens.remove(alien);
+				tru = true;
 			}
 		}
 	}
@@ -47,12 +49,12 @@ public class GamemodeTwo {
 			}
 		}
 		else {
-			aliens.add(new Alien(WordReader.getRandomAlienSpawn(), -50 , WordReader.getRandomWord()));
+			aliens.add(new Alien(WordReader.getRandomAlienSpawn(), -175 , WordReader.getRandomWord()));
 			counter = 1;
 			DIFFICULTY_VALUE = DIFFICULTY_VALUE - .1;
 		}
 		if(counter % Math.rint(DIFFICULTY_VALUE) == 0 ) {
-			aliens.add(new Alien(WordReader.getRandomAlienSpawn(), -50 , WordReader.getRandomWord()));
+			aliens.add(new Alien(WordReader.getRandomAlienSpawn(), -175 , WordReader.getRandomWord()));
 			counter = 1;
 			DIFFICULTY_VALUE = DIFFICULTY_VALUE - .1;
 		}
@@ -60,9 +62,20 @@ public class GamemodeTwo {
 	
 	public void draw(GraphicsContext gc) {
 		gc.clearRect(0, 0, 1280, 720);
+		int i = 0;
 		for(Alien alien: aliens) {
 			alien.draw(gc);
+			while(tru == true) {
+				//add explosion
+				alien.explosion(gc);
+				
+				if(i == 2) {
+					aliens.remove(alien);
+					tru = false; 
+				}
+			i++;
+			}
 		}
 	}
-
 }
+

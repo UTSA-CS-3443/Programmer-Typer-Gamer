@@ -128,7 +128,7 @@
                         <Font name="Consolas Bold" size="24.0" />
                      </font>
                   </Text>
-                  <RadioButton contentDisplay="CENTER" mnemonicParsing="false" selected="true" text="Water" textFill="WHITE">
+                  <RadioButton fx:id="oceanBut" contentDisplay="CENTER" mnemonicParsing="false" selected="true" text="Ocean" textFill="WHITE">
                      <toggleGroup>
                         <ToggleGroup fx:id="themeRadioButtons" />
                      </toggleGroup>
@@ -139,7 +139,7 @@
                         <Font name="Consolas" size="14.0" />
                      </font>
                   </RadioButton>
-                  <RadioButton mnemonicParsing="false" text="Desert" textFill="WHITE" toggleGroup="$themeRadioButtons">
+                  <RadioButton fx:id="cityBut" mnemonicParsing="false" text="City" textFill="WHITE" toggleGroup="$themeRadioButtons">
                      <VBox.margin>
                         <Insets top="10.0" />
                      </VBox.margin>
@@ -147,7 +147,7 @@
                         <Font name="Consolas" size="14.0" />
                      </font>
                   </RadioButton>
-                  <RadioButton mnemonicParsing="false" text="Space" textFill="WHITE" toggleGroup="$themeRadioButtons">
+                  <RadioButton fx:id="spaceBut" mnemonicParsing="false" text="Space" textFill="WHITE" toggleGroup="$themeRadioButtons">
                      <VBox.margin>
                         <Insets top="10.0" />
                      </VBox.margin>

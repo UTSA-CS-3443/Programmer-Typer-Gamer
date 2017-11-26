@@ -82,7 +82,7 @@ public class LoginController implements EventHandler<ActionEvent> {
 		}
 	}
 
-	//@Override
+	@Override
 	public void handle(ActionEvent event) {
 		Button b = (Button)event.getSource();
 		logModel.update( b.getText() );
@@ -90,7 +90,17 @@ public class LoginController implements EventHandler<ActionEvent> {
 		Parent root = null;
 		
 		try {
-			root = FXMLLoader.load(getClass().getResource("/application/view/Game.fxml"));
+			if(MainController.gameModeOne == true) {
+				System.out.println("Does it get in the first if statement");
+				root = FXMLLoader.load(getClass().getResource("/application/view/Game.fxml"));
+			}
+			if(MainController.gameModeTwo == true) {
+				root = FXMLLoader.load(getClass().getResource("/application/view/GameTwo.fxml"));
+			}
+			if(MainController.gameModeThree == true) {
+				//Add code to launch Game mode three when added. 
+				//root = FXMLLoader.load(getClass().getResource("/application/view/GameThree.fxml"));
+			}
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -103,29 +113,4 @@ public class LoginController implements EventHandler<ActionEvent> {
 		window.show();
 		
 	}
-	
-	public void game2(ActionEvent event) {
-		
-		
-		Parent root = null;
-		
-		try {
-			root = FXMLLoader.load(getClass().getResource("/application/view/GameTwo.fxml"));
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-		
-		Scene scene = new Scene(root); 
-		scene.getStylesheets().add(getClass().getResource("/application/application.css").toExternalForm()); // adds style from css
-		Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
-		window.setScene(scene); 
-		window.centerOnScreen();
-		window.show();
-		
-		
-		
-	}
-	
-	
-	
 }
