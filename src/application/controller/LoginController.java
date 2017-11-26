@@ -44,6 +44,7 @@ public class LoginController implements EventHandler<ActionEvent> {
 		
 		try {
 			if(MainController.gameModeOne == true) {
+				System.out.println("Does it get in the first if statement");
 				root = FXMLLoader.load(getClass().getResource("/application/view/Game.fxml"));
 			}
 			if(MainController.gameModeTwo == true) {
@@ -51,7 +52,7 @@ public class LoginController implements EventHandler<ActionEvent> {
 			}
 			if(MainController.gameModeThree == true) {
 				//Add code to launch Game mode three when added. 
-				//root = FXMLLoader.load(getClass().getResource("/application/view/GameThree.fxml))
+				//root = FXMLLoader.load(getClass().getResource("/application/view/GameThree.fxml"));
 			}
 		} catch (IOException e) {
 			e.printStackTrace();
