@@ -33,6 +33,15 @@ public class MainController implements EventHandler<ActionEvent> {
 	private RadioButton mediumBut;
 	@FXML
 	private RadioButton hardBut;
+	@FXML
+	private RadioButton oceanBut;
+	@FXML
+	private RadioButton cityBut;
+	@FXML
+	private RadioButton spaceBut;
+	public static boolean gameModeOne = false;
+	public static boolean gameModeTwo = false;
+	public static boolean gameModeThree = false;
 	private int easyNum = 1000;
 	private int mediumNum = 750;
 	private int hardNum = 500;
@@ -72,6 +81,15 @@ public class MainController implements EventHandler<ActionEvent> {
 			WordReader.easy = false;
 			WordReader.medium = false;
 			WordReader.hard = true;
+		}
+		if(oceanBut.isSelected() == true) {
+			gameModeOne = true;
+		}
+		if(cityBut.isSelected() == true) {
+			gameModeTwo = true;
+		}
+		if(spaceBut.isSelected() == true) {
+			gameModeThree = true;
 		}
 		Parent root = FXMLLoader.load(getClass().getResource("/application/view/Login.fxml")); // Loads Main Menu fxml 
 		Scene scene = new Scene(root); 

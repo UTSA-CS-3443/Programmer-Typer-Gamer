@@ -43,7 +43,16 @@ public class LoginController implements EventHandler<ActionEvent> {
 		Parent root = null;
 		
 		try {
-			root = FXMLLoader.load(getClass().getResource("/application/view/Game.fxml"));
+			if(MainController.gameModeOne == true) {
+				root = FXMLLoader.load(getClass().getResource("/application/view/Game.fxml"));
+			}
+			if(MainController.gameModeTwo == true) {
+				root = FXMLLoader.load(getClass().getResource("/application/view/GameTwo.fxml"));
+			}
+			if(MainController.gameModeThree == true) {
+				//Add code to launch Game mode three when added. 
+				//root = FXMLLoader.load(getClass().getResource("/application/view/GameThree.fxml))
+			}
 		} catch (IOException e) {
 			e.printStackTrace();
 		}

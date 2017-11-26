@@ -36,7 +36,7 @@ public class Alien {
 	
 	public void draw(GraphicsContext gc) {
 		gc.drawImage(image, x, y);
-		gc.fillText(word, x + (image.getWidth() / 3), y + (image.getHeight() / 2));
+		gc.fillText(word, x + (image.getWidth() / 2)  - 15, y + (image.getHeight() / 2) + 10);
 	}
 
 }
