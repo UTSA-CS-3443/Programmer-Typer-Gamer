@@ -4,6 +4,7 @@ import java.io.File;
 import java.util.concurrent.CopyOnWriteArrayList;
 
 import javafx.animation.AnimationTimer;
+import javafx.beans.property.SimpleIntegerProperty;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
@@ -17,6 +18,23 @@ public class GamemodeTwo {
 
 	Media sound2 = new Media(new File(musicFile).toURI().toString());
 	MediaPlayer explosion = new MediaPlayer(sound2);
+	
+	//G.B.
+	private int lives = 3; //start with 3 lives
+	
+	//G.B. points constants
+    private static final int POINTS_PER_WORD = 100;
+    private static final float BONUS_MODIFIER = 0.2f; //amount by which bonus increases
+
+    /**
+     * Current score
+     */
+    private SimpleIntegerProperty score = new SimpleIntegerProperty();
+    /**
+     * How many points next correct letter is worth
+     */
+    private float scoreModifier = 1.0f;
+
 	
 	public GamemodeTwo(GraphicsContext gc) {
 		WordReader randomWord = new WordReader();
@@ -37,20 +55,41 @@ public class GamemodeTwo {
 	public void checkWord(String input) {
 		//System.out.println("Looking for word " + input);
 		for(Alien alien: aliens) {
+			
+			//if you get word correct
 			if(alien.getWord().toLowerCase().equals(input.toLowerCase())) {
+
 				//System.out.println("Found shark with word " + input + ". Removing...");
+
+
 				//aliens.remove(alien);
 				tru = true;
+
 			}
+			System.out.println(score);
+			System.out.println("scoreModifier " + scoreModifier); //G.B. score test
 		}
 	}
+
 	
 	public void update() {
 		counter++;
 		if(aliens.isEmpty() == false) {
 			for(Alien alien: aliens) {
-				if(alien.getY() > 500) {
+				if(alien.getY() > 500) { // (enemy reaches player) takes care of collision
 					aliens.remove(alien);
+					
+					//G.B. enemy goes past player
+					scoreModifier = 1.0f; //reset the Bonus
+					System.out.println("scoreModifier " + scoreModifier); //G.B. score test
+					
+					//G.B. lives
+					lives = lives - 1;
+					if(lives <= 0) {
+						lives = 0; //stops removing lives
+					    //call fail state/game stop method
+					}
+					System.out.println("lives " + lives); //gb lives test
 				}
 				alien.update();
 			}
