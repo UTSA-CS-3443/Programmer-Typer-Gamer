@@ -95,4 +95,10 @@ public class WordReader {
 		double spawn = rand.nextInt(451) + 25; 
 		return spawn;
 	}
+	
+	public static double getRandomAlienSpawn() {
+		Random rand = new Random();
+		double spawn = rand.nextInt(881) + 200;
+		return spawn;
+	}
 }

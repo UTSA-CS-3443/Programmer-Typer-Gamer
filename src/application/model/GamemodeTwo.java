@@ -13,7 +13,7 @@ public class GamemodeTwo {
 	public GamemodeTwo(GraphicsContext gc) {
 		WordReader randomWord = new WordReader();
 		aliens = new CopyOnWriteArrayList<Alien>();
-		aliens.add(new Alien(1300, WordReader.getRandomSpawn(), WordReader.getRandomWord()));
+		aliens.add(new Alien(WordReader.getRandomAlienSpawn(), -50, WordReader.getRandomWord()));
 	
 		new AnimationTimer() {
 
@@ -40,19 +40,19 @@ public class GamemodeTwo {
 		counter++;
 		if(aliens.isEmpty() == false) {
 			for(Alien alien: aliens) {
-				if(alien.getX() < -300) {
+				if(alien.getY() > 500) {
 					aliens.remove(alien);
 				}
 				alien.update();
 			}
 		}
 		else {
-			aliens.add(new Alien(1300, WordReader.getRandomSpawn(), WordReader.getRandomWord()));
+			aliens.add(new Alien(WordReader.getRandomAlienSpawn(), -50 , WordReader.getRandomWord()));
 			counter = 1;
 			DIFFICULTY_VALUE = DIFFICULTY_VALUE - .1;
 		}
 		if(counter % Math.rint(DIFFICULTY_VALUE) == 0 ) {
-			aliens.add(new Alien(1300, WordReader.getRandomSpawn(), WordReader.getRandomWord()));
+			aliens.add(new Alien(WordReader.getRandomAlienSpawn(), -50 , WordReader.getRandomWord()));
 			counter = 1;
 			DIFFICULTY_VALUE = DIFFICULTY_VALUE - .1;
 		}
