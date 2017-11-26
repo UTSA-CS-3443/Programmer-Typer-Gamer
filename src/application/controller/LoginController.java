@@ -2,6 +2,7 @@ package application.controller;
 
 import java.io.*;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 import application.model.*;
 
@@ -27,47 +28,49 @@ public class LoginController implements EventHandler<ActionEvent> {
 		super();
 		this.logModel = new LoginModel();
 		
+		user0 = new Label();
+		user1 = new Label();
+		user2 = new Label();
+		user3 = new Label();
 		
 		for (int i = 0; i < 4; i++) {
 			String fileName = "src/userFiles/user" + i + ".txt";
 			File userFile = new File(fileName);
 				
 			// init
-			if (userFile.exists()) {
-				break;
-			}
-			else if (!userFile.exists()) {
+			if (!userFile.exists()) {
 				try {
 					userFile.createNewFile();
 				} catch (IOException e) {
 					e.printStackTrace();
 				}
 			}
-			else {
-				System.out.println("user file is not initialized correctly");
-			}
-			
 			// setting label names
 			String line = null;
 			try {
-	            FileReader fileReader = 
-	                new FileReader(fileName);
-
-	            // Always wrap FileReader in BufferedReader.
-	            BufferedReader bufferedReader = 
-	                new BufferedReader(fileReader);
+	            Scanner sc = new Scanner(userFile);
 	            
-	            if (bufferedReader.readLine() == null) {
-	            	
-	            	continue;
+	            if (!sc.hasNextLine()) {
+	            	if (i == 0) {
+	            		// update
+	            	}
+	            	if (i == 1) {
+	            		// update
+	            	}
+	            	if (i == 2) {
+	            		// update
+	            	}
+	            	if (i == 3) {
+	            		// update
+	            	}
 	            }
-
-	            while((line = bufferedReader.readLine()) != null) {
-	                System.out.println(line);
+	            else {
+	            	while((line = sc.nextLine()) != null) {
+	            		// while the file does have stuff inside
+	            		// update
+	            	}
 	            }   
-
-	            // Always close files.
-	            bufferedReader.close();         
+       
 	        }
 	        catch(FileNotFoundException e) {
 	            System.out.println("Unable to open file '" + fileName + "'");
@@ -80,6 +83,7 @@ public class LoginController implements EventHandler<ActionEvent> {
 			
 			
 		}
+		
 	}
 
 	@Override
