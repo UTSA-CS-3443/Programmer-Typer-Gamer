@@ -76,7 +76,7 @@ public class GamemodeTwo {
 			}
 			System.out.println(score);
 			System.out.println("scoreModifier " + scoreModifier); //G.B. score test
-			
+			System.out.println("push");
 		}
 	}
 
