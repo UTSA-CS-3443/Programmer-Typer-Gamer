@@ -17,6 +17,7 @@ public class GamemodeOne {
 	private CopyOnWriteArrayList<Shark> sharks;
 	public static double DIFFICULTY_VALUE = 500; //The value used to change the difficulty. 
 	
+	
 	public GamemodeOne(GraphicsContext gc) {
 		WordReader randomWord = new WordReader();
 		sharks = new CopyOnWriteArrayList<Shark>();
@@ -47,7 +48,7 @@ public class GamemodeOne {
 		counter++;
 		if(sharks.isEmpty() == false) {
 			for(Shark shark: sharks) {
-				if(shark.getX() < -300) {
+				if(shark.getX() < -300) { //takes care of collision
 					sharks.remove(shark);
 				}
 				shark.update();
