@@ -82,15 +82,17 @@ public class GamemodeOne {
 			shark.draw(gc);
 			while(tru == true) {
 				//add explosion
-				bubbles.play();
 				shark.bubbles(gc);
+				bubbles.play();
+				
 				
 				if(i == 2) {
 					sharks.remove(shark);
 					tru = false; 
-					bubbles.stop();
+					
 				}
 			i++;
+			bubbles.stop();
 			}
 		}
 	}

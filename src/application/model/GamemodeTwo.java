@@ -55,13 +55,9 @@ public class GamemodeTwo {
 	public void checkWord(String input) {
 		//System.out.println("Looking for word " + input);
 		for(Alien alien: aliens) {
-			
 			//if you get word correct
 			if(alien.getWord().toLowerCase().equals(input.toLowerCase())) {
-
 				//System.out.println("Found shark with word " + input + ". Removing...");
-
-
 				//aliens.remove(alien);
 				tru = true;
 
@@ -113,15 +109,15 @@ public class GamemodeTwo {
 			alien.draw(gc);
 			while(tru == true) {
 				//add explosion
-				explosion.play();
 				alien.explosion(gc);
+				explosion.play();
 				
 				if(i == 2) {
 					aliens.remove(alien);
 					tru = false; 
-					explosion.stop();
 				}
 			i++;
+			explosion.stop();
 			}
 		}
 	}
