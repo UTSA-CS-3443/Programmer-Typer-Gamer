@@ -12,7 +12,7 @@ public class GamemodeTwo {
 	public static double DIFFICULTY_VALUE = 500; //The value used to change the difficulty. 
 	private boolean tru = false;
 	
-	//G.B.
+	//G.B. lives
 	private int lives = 3; //start with 3 lives
 	
 	//G.B. points constants
@@ -55,10 +55,19 @@ public class GamemodeTwo {
 
 				//aliens.remove(alien);
 				tru = true;
+				
+				//G.B. score
+				score.set(score.get() + (int)(scoreModifier * POINTS_PER_WORD));
+				scoreModifier += BONUS_MODIFIER;
+				
+			//if you enter the word wrong
+			} else {
+				scoreModifier = 1.0f; //reset the Bonus
 
 			}
 			System.out.println(score);
 			System.out.println("scoreModifier " + scoreModifier); //G.B. score test
+			
 		}
 	}
 
