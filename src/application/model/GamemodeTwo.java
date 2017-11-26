@@ -1,16 +1,23 @@
 package application.model;
 
+import java.io.File;
 import java.util.concurrent.CopyOnWriteArrayList;
 
 import javafx.animation.AnimationTimer;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 
 public class GamemodeTwo {
 	private int counter = 0;
 	private CopyOnWriteArrayList<Alien> aliens;
 	public static double DIFFICULTY_VALUE = 500; //The value used to change the difficulty. 
 	private boolean tru = false;
+	String musicFile = "src/soundTrack/explosion.mp3";     // For example
+
+	Media sound2 = new Media(new File(musicFile).toURI().toString());
+	MediaPlayer explosion = new MediaPlayer(sound2);
 	
 	//G.B. lives
 	private int lives = 3; //start with 3 lives
@@ -46,12 +53,14 @@ public class GamemodeTwo {
 	}
 	
 	public void checkWord(String input) {
-		System.out.println("Looking for word " + input);
+		//System.out.println("Looking for word " + input);
 		for(Alien alien: aliens) {
 			
 			//if you get word correct
 			if(alien.getWord().toLowerCase().equals(input.toLowerCase())) {
-				System.out.println("Found shark with word " + input + ". Removing...");
+
+				//System.out.println("Found shark with word " + input + ". Removing...");
+
 
 				//aliens.remove(alien);
 				tru = true;
@@ -113,11 +122,13 @@ public class GamemodeTwo {
 			alien.draw(gc);
 			while(tru == true) {
 				//add explosion
+				explosion.play();
 				alien.explosion(gc);
 				
 				if(i == 2) {
 					aliens.remove(alien);
 					tru = false; 
+					explosion.stop();
 				}
 			i++;
 			}
