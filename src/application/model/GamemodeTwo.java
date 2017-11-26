@@ -10,6 +10,7 @@ public class GamemodeTwo {
 	private int counter = 0;
 	private CopyOnWriteArrayList<Alien> aliens;
 	public static double DIFFICULTY_VALUE = 500; //The value used to change the difficulty. 
+	private boolean tru = false;
 	
 	//G.B.
 	private int lives = 3; //start with 3 lives
@@ -51,14 +52,9 @@ public class GamemodeTwo {
 			//if you get word correct
 			if(alien.getWord().toLowerCase().equals(input.toLowerCase())) {
 				System.out.println("Found shark with word " + input + ". Removing...");
-				aliens.remove(alien);
-				//G.B. score
-				score.set(score.get() + (int)(scoreModifier * POINTS_PER_WORD));
-				scoreModifier += BONUS_MODIFIER;
-				
-			//if you enter the word wrong
-			} else {
-				scoreModifier = 1.0f; //reset the Bonus
+
+				//aliens.remove(alien);
+				tru = true;
 
 			}
 			System.out.println(score);
@@ -103,9 +99,20 @@ public class GamemodeTwo {
 	
 	public void draw(GraphicsContext gc) {
 		gc.clearRect(0, 0, 1280, 720);
+		int i = 0;
 		for(Alien alien: aliens) {
 			alien.draw(gc);
+			while(tru == true) {
+				//add explosion
+				alien.explosion(gc);
+				
+				if(i == 2) {
+					aliens.remove(alien);
+					tru = false; 
+				}
+			i++;
+			}
 		}
 	}
-
 }
+

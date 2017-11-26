@@ -52,7 +52,7 @@
                         <ColorAdjust brightness="0.9" contrast="1.0" hue="1.0" saturation="1.0" />
                      </effect>
                   </Separator>
-                  <Button alignment="CENTER" contentDisplay="CENTER" layoutX="20.0" layoutY="150.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#game2" prefHeight="75.0" prefWidth="520.0">
+                  <Button alignment="CENTER" contentDisplay="CENTER" layoutX="20.0" layoutY="150.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#handle" prefHeight="75.0" prefWidth="520.0">
                      <graphic>
                         <Label fx:id="user1" alignment="CENTER" contentDisplay="CENTER" text="Label">
                            <graphic>

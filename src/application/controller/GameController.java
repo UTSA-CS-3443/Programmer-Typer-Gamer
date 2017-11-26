@@ -1,4 +1,4 @@
- package application.controller;
+package application.controller;
 
 import application.model.GamemodeOne;
 import javafx.event.ActionEvent;

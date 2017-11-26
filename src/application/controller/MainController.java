@@ -85,11 +85,17 @@ public class MainController implements EventHandler<ActionEvent> {
 		}
 		if(oceanBut.isSelected() == true) {
 			gameModeOne = true;
+			gameModeTwo = false;
+			gameModeThree = false;
 		}
 		if(cityBut.isSelected() == true) {
+			gameModeOne = false;
 			gameModeTwo = true;
+			gameModeThree = false;
 		}
 		if(spaceBut.isSelected() == true) {
+			gameModeOne = false;
+			gameModeTwo = false;
 			gameModeThree = true;
 		}
 		Parent root = FXMLLoader.load(getClass().getResource("/application/view/Login.fxml")); // Loads Main Menu fxml 
