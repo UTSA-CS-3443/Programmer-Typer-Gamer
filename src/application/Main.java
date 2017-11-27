@@ -33,7 +33,7 @@ public class Main extends Application {
 
 			Media sound = new Media(new File(musicFile).toURI().toString());
 			MediaPlayer mediaPlayer = new MediaPlayer(sound);
-			//mediaPlayer.play();
+			mediaPlayer.play();
 			
 			Parent root = FXMLLoader.load(getClass().getResource("view/Main.fxml"));
 			primaryStage.setScene(new Scene(root, 600, 400));
