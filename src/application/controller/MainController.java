@@ -47,6 +47,22 @@ public class MainController implements EventHandler<ActionEvent> {
 	private int mediumNum = 750;
 	private int hardNum = 500;
 	
+	//G.B. lives global constants
+		public static int lives = 3; //start with 3 lives
+		
+		//G.B. points global constants
+	    public static int POINTS_PER_WORD;
+	    public static float BONUS_MODIFIER = 0.2f; //amount by which bonus increases
+	    
+	    /**
+	     * Current score
+	     */
+	    public static SimpleIntegerProperty score = new SimpleIntegerProperty();
+	    /**
+	     * How many points next correct letter is worth
+	     */
+	    public static float scoreModifier = 1.0f;
+	
 	/*
 	 * if login successful, Main Menu opens. 
 	 * 
@@ -70,18 +86,21 @@ public class MainController implements EventHandler<ActionEvent> {
 			WordReader.easy = true;
 			WordReader.medium = false;
 			WordReader.hard = false;
+			POINTS_PER_WORD = 100;
 		}
 		if(mediumBut.isSelected() == true) {
 			GamemodeOne.DIFFICULTY_VALUE = mediumNum;
 			WordReader.easy = false;
 			WordReader.medium = true;
 			WordReader.hard = false;
+			POINTS_PER_WORD = 200;
 		}
 		if(hardBut.isSelected() == true) {
 			GamemodeOne.DIFFICULTY_VALUE = hardNum;
 			WordReader.easy = false;
 			WordReader.medium = false;
 			WordReader.hard = true;
+			POINTS_PER_WORD = 300;
 		}
 		if(oceanBut.isSelected() == true) {
 			gameModeOne = true;
