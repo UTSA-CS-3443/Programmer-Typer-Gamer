@@ -27,7 +27,7 @@
       </ImageView>
       <BorderPane prefHeight="720.0" prefWidth="1280.0">
          <bottom>
-            <TextField fx:id="wordField" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onAction="#handle" opacity="0.25" pickOnBounds="false" prefHeight="80.0" prefWidth="500.0" BorderPane.alignment="CENTER">
+            <TextField fx:id="wordField" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onAction="#handle" onKeyPressed="#onKeyPressed" opacity="0.25" pickOnBounds="false" prefHeight="80.0" prefWidth="500.0" BorderPane.alignment="CENTER">
                <BorderPane.margin>
                   <Insets bottom="20.0" />
                </BorderPane.margin>
@@ -43,5 +43,29 @@
             <Canvas fx:id="canvas" height="600.0" width="1280.0" BorderPane.alignment="CENTER" />
          </top>
       </BorderPane>
+      <VBox fx:id="pauseMenu" alignment="CENTER" prefHeight="720.0" prefWidth="1280.0" visible="false">
+         <children>
+            <Label text="Paused">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+            <Button fx:id="resumeButton" mnemonicParsing="false" onAction="#resume" text="Resume" />
+            <Button fx:id="mainMenuButton" mnemonicParsing="false" onAction="#mainMenu" text="Main Menu" />
+            <Button fx:id="quitButton" mnemonicParsing="false" onAction="#quit" text="Quit" />
+         </children>
+      </VBox>
+      <VBox fx:id="gameOver2Menu" alignment="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="720.0" prefWidth="1280.0" visible="false">
+         <children>
+            <Label text="Game Over!">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+            <Button fx:id="tryAgainButton" mnemonicParsing="false" onAction="#retry" text="Try Again" />
+            <Button fx:id="resetButton" mnemonicParsing="false" onAction="#mainMenu" text="Main Menu" />
+            <Button fx:id="quit2Button" mnemonicParsing="false" onAction="#quit" text="Quit" />
+         </children>
+      </VBox>
    </children>
 </AnchorPane>

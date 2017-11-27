@@ -3,6 +3,7 @@ package application.model;
 import java.io.File;
 import java.util.concurrent.CopyOnWriteArrayList;
 
+import application.controller.GameTwoController;
 import javafx.animation.AnimationTimer;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.scene.canvas.GraphicsContext;
@@ -10,10 +11,13 @@ import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 
 public class GamemodeTwo {
+	private GameTwoController controller;
 	private int counter = 0;
 	private CopyOnWriteArrayList<Alien> aliens;
 	public static double DIFFICULTY_VALUE = 500; //The value used to change the difficulty. 
 	private boolean tru = false;
+	private boolean paused = false;
+	private boolean gameOver = false;
 	String musicFile = "src/soundTrack/explosion.mp3";     // For example
 
 	Media sound2 = new Media(new File(musicFile).toURI().toString());
@@ -36,7 +40,8 @@ public class GamemodeTwo {
     private float scoreModifier = 1.0f;
 
 	
-	public GamemodeTwo(GraphicsContext gc) {
+	public GamemodeTwo(GameTwoController controller) {
+		this.controller = controller;
 		WordReader randomWord = new WordReader();
 		aliens = new CopyOnWriteArrayList<Alien>();
 		aliens.add(new Alien(WordReader.getRandomAlienSpawn(), -175, WordReader.getRandomWord()));
@@ -46,7 +51,7 @@ public class GamemodeTwo {
 			@Override
 			public void handle(long arg0) {
 				update();
-				draw(gc);			
+				draw(controller.canvas.getGraphicsContext2D());			
 			}
 			
 		}.start();
@@ -78,6 +83,8 @@ public class GamemodeTwo {
 
 	
 	public void update() {
+		if(paused) return;
+		
 		counter++;
 		if(aliens.isEmpty() == false) {
 			for(Alien alien: aliens) {
@@ -92,7 +99,7 @@ public class GamemodeTwo {
 					lives = lives - 1;
 					if(lives <= 0) {
 						lives = 0; //stops removing lives
-					    //call fail state/game stop method
+					    gameOver();
 					}
 					System.out.println("lives " + lives); //gb lives test
 				}
@@ -129,6 +136,15 @@ public class GamemodeTwo {
 			explosion.stop();
 			}
 		}
+	}
+	
+	public void setPaused(boolean paused) {
+		this.paused = paused;
+	}
+	
+	public void gameOver() {
+		gameOver = true;
+		controller.gameOver();
 	}
 }
 
