@@ -134,6 +134,22 @@ public class GamemodeTwo {
 				i++;
 				explosion.stop();
 			}
+			
+			if(MainController.lives == 3) {
+				alien.heart1(gc);
+				alien.heart2(gc);
+				alien.heart3(gc);
+
+			}
+			
+			if(MainController.lives == 2) {
+				alien.heart1(gc);
+				alien.heart2(gc);
+			}
+			
+			if(MainController.lives == 1) {
+				alien.heart1(gc);
+			}
 		}
 	}
 	
