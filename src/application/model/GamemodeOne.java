@@ -18,7 +18,7 @@ import javafx.stage.Stage;
 
 public class GamemodeOne {
 	private GameController controller;
-	private int counter = 0, lives = 3;
+	private int counter = 0;
 	private CopyOnWriteArrayList<Shark> sharks;
 	private boolean tru = false;
 	private boolean paused = false;
@@ -54,6 +54,15 @@ public class GamemodeOne {
 			if(shark.getWord().toLowerCase().equals(input.toLowerCase())) {
 				//System.out.println("Found shark with word " + input + ". Removing...");
 				tru = true; 
+				
+				//G.B. score
+				MainController.score.set(MainController.score.get() + (int)(MainController.scoreModifier * MainController.POINTS_PER_WORD));
+				MainController.scoreModifier += MainController.BONUS_MODIFIER;
+
+				//if you enter the word wrong
+			} else {
+				MainController.scoreModifier = 1.0f; //reset the Bonus
+
 			}
 		}
 	}
@@ -65,9 +74,20 @@ public class GamemodeOne {
 			for(Shark shark: sharks) {
 				if(shark.getX() < -300) { //shark left screen, lose life
 					sharks.remove(shark);
-					lives--;
 					
-					if(lives <= 0) gameOver();
+					//G.B. enemy goes past player
+					MainController.scoreModifier = 1.0f; //reset the Bonus
+					System.out.println("scoreModifier " + MainController.scoreModifier); //G.B. score test
+
+					//G.B. lives
+
+
+					MainController.lives = MainController.lives - 1;
+					if(MainController.lives <= 0) {
+						MainController.lives = 0; //stops removing lives
+					
+					if(MainController.lives <= 0) gameOver();
+					}
 				}
 				shark.update();
 			}
