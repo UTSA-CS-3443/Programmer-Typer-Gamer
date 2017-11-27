@@ -17,7 +17,7 @@ import javafx.stage.Stage;
 
 public class GamemodeOne {
 	private GameController controller;
-	private int counter = 0;
+	private int counter = 0, lives = 3;
 	private CopyOnWriteArrayList<Shark> sharks;
 	public static double DIFFICULTY_VALUE = 500; //The value used to change the difficulty. 
 	private boolean tru = false;
@@ -62,8 +62,11 @@ public class GamemodeOne {
 		counter++;
 		if(sharks.isEmpty() == false) {
 			for(Shark shark: sharks) {
-				if(shark.getX() < -300) { //takes care of collision
+				if(shark.getX() < -300) { //shark left screen, lose life
 					sharks.remove(shark);
+					lives--;
+					
+					if(lives <= 0) gameOver();
 				}
 				shark.update();
 			}
