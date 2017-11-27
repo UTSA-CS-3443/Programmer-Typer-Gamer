@@ -18,7 +18,7 @@ import javafx.stage.Stage;
 
 public class GamemodeOne {
 	private GameController controller;
-	private int counter = 0;
+	private int counter = 0, lives = 3;
 	private CopyOnWriteArrayList<Shark> sharks;
 	private boolean tru = false;
 	private boolean paused = false;
@@ -63,8 +63,11 @@ public class GamemodeOne {
 		counter++;
 		if(sharks.isEmpty() == false) {
 			for(Shark shark: sharks) {
-				if(shark.getX() < -300) { //takes care of collision
+				if(shark.getX() < -300) { //shark left screen, lose life
 					sharks.remove(shark);
+					lives--;
+					
+					if(lives <= 0) gameOver();
 				}
 				shark.update();
 			}
