@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.canvas.Canvas?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.ColorAdjust?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.GameThreeController">
+   <children>
+      <ImageView fitHeight="720.0" fitWidth="1280.0">
+         <image>
+            <Image url="@../../Images/nebula.jpg" />
+         </image>
+      </ImageView>
+      <BorderPane prefHeight="720.0" prefWidth="1280.0">
+         <bottom>
+            <TextField fx:id="wordField" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onAction="#handle" onKeyPressed="#onKeyPressed" opacity="0.25" pickOnBounds="false" prefHeight="80.0" prefWidth="500.0" BorderPane.alignment="CENTER">
+               <BorderPane.margin>
+                  <Insets bottom="20.0" />
+               </BorderPane.margin>
+               <font>
+                  <Font name="Calibri" size="24.0" />
+               </font>
+               <effect>
+                  <ColorAdjust brightness="-0.59" contrast="1.0" hue="-0.79" saturation="0.6" />
+               </effect>
+            </TextField>
+         </bottom>
+         <top>
+            <Canvas fx:id="canvas" height="600.0" width="1280.0" BorderPane.alignment="CENTER" />
+         </top>
+      </BorderPane>
+      <VBox fx:id="pauseMenu" alignment="CENTER" prefHeight="720.0" prefWidth="1280.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <Label text="Paused" textFill="WHITE">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+            <Button fx:id="resumeButton" mnemonicParsing="false" onAction="#resume" text="Resume" />
+            <Button fx:id="mainMenuButton" mnemonicParsing="false" onAction="#mainMenu" text="Main Menu" />
+            <Button fx:id="quitButton" mnemonicParsing="false" onAction="#quit" text="Quit" />
+         </children>
+      </VBox>
+      <VBox fx:id="gameOverMenu" alignment="CENTER" prefHeight="720.0" prefWidth="1280.0" visible="false">
+         <children>
+            <Label text="Game Over!" textFill="WHITE">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+            <Button fx:id="tryAgainButton" mnemonicParsing="false" onAction="#retry" text="Try Again" />
+            <Button fx:id="resetButton" mnemonicParsing="false" onAction="#mainMenu" text="Main Menu" />
+            <Button fx:id="quit2Button" mnemonicParsing="false" onAction="#quit" text="Quit" />
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>

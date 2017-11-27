@@ -125,7 +125,7 @@ public class MainController implements EventHandler<ActionEvent> {
 	}
 	
 	public void spaceViewChg(ActionEvent event) {
-		Image image = new Image(getClass().getResource("/Images/.jpg").toExternalForm());
+		Image image = new Image(getClass().getResource("/Images/nebula.jpg").toExternalForm());
 		this.curImage.setImage(image);
 	}
 	

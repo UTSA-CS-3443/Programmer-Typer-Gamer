@@ -19,7 +19,7 @@
    <children>
       <ImageView fx:id="curImage" fitHeight="400.0" fitWidth="600.0">
          <image>
-            <Image url="@../../Images/nightsky.jpg" />
+            <Image url="@../../Images/nebula.jpg" />
          </image>
       </ImageView>
       <BorderPane prefHeight="400.0" prefWidth="600.0">
@@ -121,16 +121,16 @@
                         <Font name="Consolas Bold" size="24.0" />
                      </font>
                   </Text>
-                  <RadioButton fx:id="oceanBut" contentDisplay="CENTER" mnemonicParsing="false" onAction="#oceanViewChg" selected="true" text="Ocean" textFill="WHITE">
-                     <toggleGroup>
-                        <ToggleGroup fx:id="themeRadioButtons" />
-                     </toggleGroup>
+                  <RadioButton fx:id="spaceBut" mnemonicParsing="false" onAction="#spaceViewChg" selected="true" text="Space" textFill="WHITE">
                      <VBox.margin>
                         <Insets top="10.0" />
                      </VBox.margin>
                      <font>
                         <Font name="Consolas" size="14.0" />
                      </font>
+                     <toggleGroup>
+                        <ToggleGroup fx:id="themeRadioButtons" />
+                     </toggleGroup>
                   </RadioButton>
                   <RadioButton fx:id="cityBut" mnemonicParsing="false" onAction="#cityViewChg" text="City" textFill="WHITE" toggleGroup="$themeRadioButtons">
                      <VBox.margin>
@@ -140,7 +140,7 @@
                         <Font name="Consolas" size="14.0" />
                      </font>
                   </RadioButton>
-                  <RadioButton fx:id="spaceBut" mnemonicParsing="false" text="Desert" textFill="WHITE" toggleGroup="$themeRadioButtons">
+                  <RadioButton fx:id="oceanBut" contentDisplay="CENTER" mnemonicParsing="false" onAction="#oceanViewChg" text="Ocean" textFill="WHITE" toggleGroup="$themeRadioButtons">
                      <VBox.margin>
                         <Insets top="10.0" />
                      </VBox.margin>
