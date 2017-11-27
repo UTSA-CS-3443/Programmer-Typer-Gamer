@@ -3,6 +3,7 @@ package application.model;
 import java.io.File;
 import java.util.concurrent.CopyOnWriteArrayList;
 
+import application.controller.MainController;
 import javafx.animation.AnimationTimer;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.scene.canvas.GraphicsContext;
@@ -38,6 +39,7 @@ public class GamemodeTwo {
 	
 	public GamemodeTwo(GraphicsContext gc) {
 		WordReader randomWord = new WordReader();
+		WordReader.getRandomTimer();
 		aliens = new CopyOnWriteArrayList<Alien>();
 		aliens.add(new Alien(WordReader.getRandomAlienSpawn(), -175, WordReader.getRandomWord()));
 	
@@ -102,12 +104,11 @@ public class GamemodeTwo {
 		else {
 			aliens.add(new Alien(WordReader.getRandomAlienSpawn(), -175 , WordReader.getRandomWord()));
 			counter = 1;
-			DIFFICULTY_VALUE = DIFFICULTY_VALUE - .1;
 		}
-		if(counter % Math.rint(DIFFICULTY_VALUE) == 0 ) {
+		if(counter % Math.rint(MainController.DIFFICULTY_VALUE) == 0 ) {
 			aliens.add(new Alien(WordReader.getRandomAlienSpawn(), -175 , WordReader.getRandomWord()));
+			WordReader.getRandomTimer();
 			counter = 1;
-			DIFFICULTY_VALUE = DIFFICULTY_VALUE - .1;
 		}
 	}
 	

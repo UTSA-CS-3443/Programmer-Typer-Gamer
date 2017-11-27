@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.util.concurrent.CopyOnWriteArrayList;
 
 import application.controller.GameController;
+import application.controller.MainController;
 import javafx.animation.AnimationTimer;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -19,20 +20,20 @@ public class GamemodeOne {
 	private GameController controller;
 	private int counter = 0;
 	private CopyOnWriteArrayList<Shark> sharks;
-	public static double DIFFICULTY_VALUE = 500; //The value used to change the difficulty. 
 	private boolean tru = false;
 	private boolean paused = false;
 	private boolean gameOver = false;
 	
+	//Sets up the sounds that happen when a shark dies
 	String musicFile = "src/soundTrack/bubbles.mp3";     // For example
-
 	Media sound1 = new Media(new File(musicFile).toURI().toString());
 	MediaPlayer bubbles = new MediaPlayer(sound1);
 	
 	
 	public GamemodeOne(GameController controller) {
 		this.controller = controller;
-		WordReader randomWord = new WordReader();
+		WordReader randomWord = new WordReader();		
+		WordReader.getRandomTimer();
 		sharks = new CopyOnWriteArrayList<Shark>();
 		sharks.add(new Shark(1300, WordReader.getRandomSpawn(), WordReader.getRandomWord()));
 		
@@ -71,13 +72,12 @@ public class GamemodeOne {
 		else {
 			sharks.add(new Shark(1300, WordReader.getRandomSpawn(), WordReader.getRandomWord()));
 			counter = 1;
-			DIFFICULTY_VALUE = DIFFICULTY_VALUE - .1;
 		}
-		if(counter % Math.rint(DIFFICULTY_VALUE) == 0 ) {
+		if(counter % Math.rint(MainController.DIFFICULTY_VALUE) == 0 ) {
 			sharks.add(new Shark(1300, WordReader.getRandomSpawn(), WordReader.getRandomWord()));
 			counter = 1;
-			DIFFICULTY_VALUE = DIFFICULTY_VALUE - .1;
-		}
+			WordReader.getRandomTimer();
+			}
 	}
 	
 	public void draw(GraphicsContext gc) {

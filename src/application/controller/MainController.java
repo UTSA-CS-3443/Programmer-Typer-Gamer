@@ -43,9 +43,11 @@ public class MainController implements EventHandler<ActionEvent> {
 	public static boolean gameModeOne = false;
 	public static boolean gameModeTwo = false;
 	public static boolean gameModeThree = false;
+	public static double DIFFICULTY_VALUE;
 	private int easyNum = 1000;
 	private int mediumNum = 750;
 	private int hardNum = 500;
+	
 	
 	/*
 	 * if login successful, Main Menu opens. 
@@ -66,19 +68,19 @@ public class MainController implements EventHandler<ActionEvent> {
 	
 	public void Login(ActionEvent event) throws Exception {
 		if(easyBut.isSelected() == true) {
-			GamemodeOne.DIFFICULTY_VALUE = easyNum;
+			//DIFFICULTY_VALUE = easyNum;
 			WordReader.easy = true;
 			WordReader.medium = false;
 			WordReader.hard = false;
 		}
 		if(mediumBut.isSelected() == true) {
-			GamemodeOne.DIFFICULTY_VALUE = mediumNum;
+			//DIFFICULTY_VALUE = mediumNum;
 			WordReader.easy = false;
 			WordReader.medium = true;
 			WordReader.hard = false;
 		}
 		if(hardBut.isSelected() == true) {
-			GamemodeOne.DIFFICULTY_VALUE = hardNum;
+			//DIFFICULTY_VALUE = hardNum;
 			WordReader.easy = false;
 			WordReader.medium = false;
 			WordReader.hard = true;
