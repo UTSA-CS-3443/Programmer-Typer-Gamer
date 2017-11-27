@@ -19,6 +19,9 @@ import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.stage.Stage; 
@@ -56,6 +59,8 @@ public class MainController implements EventHandler<ActionEvent> {
 	public Media sound;
 	public MediaPlayer mediaPlayer;
 	public boolean mediaBool;
+	@FXML
+	private ImageView curImage;
 	
 	//G.B. lives global constants
 		public static int lives = 3; //start with 3 lives
@@ -107,6 +112,21 @@ public class MainController implements EventHandler<ActionEvent> {
 			this.mediaBool = true;
 			this.mediaPlayer.play();
 		}
+	}
+	
+	public void oceanViewChg(ActionEvent event) {
+		Image image = new Image(getClass().getResource("/Images/oceanGameBg.jpg").toExternalForm());
+		this.curImage.setImage(image);
+	}
+	
+	public void cityViewChg(ActionEvent event) {
+		Image image = new Image(getClass().getResource("/Images/City.jpg").toExternalForm());
+		this.curImage.setImage(image);
+	}
+	
+	public void spaceViewChg(ActionEvent event) {
+		Image image = new Image(getClass().getResource("/Images/.jpg").toExternalForm());
+		this.curImage.setImage(image);
 	}
 	
 	public void Login(ActionEvent event) throws Exception {
