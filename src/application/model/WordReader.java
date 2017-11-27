@@ -6,6 +6,8 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.Random;
 
+import application.controller.MainController;
+
 
 public class WordReader {
 
@@ -100,5 +102,20 @@ public class WordReader {
 		Random rand = new Random();
 		double spawn = rand.nextInt(850) + 200;
 		return spawn;
+	}
+	
+	public static void getRandomTimer() {
+		Random rand = new Random(System.currentTimeMillis());
+		double interval = 1000;
+		if(easy == true) {
+			interval = rand.nextInt(400) + 800;
+		}
+		if(medium == true) {
+			interval = rand.nextInt(150) + 600;
+		}
+		if(hard == true) {
+			interval = rand.nextInt(200) + 300;
+		}
+		MainController.DIFFICULTY_VALUE = interval;
 	}
 }

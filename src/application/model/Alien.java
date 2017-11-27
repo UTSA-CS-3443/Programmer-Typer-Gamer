@@ -9,6 +9,7 @@ public class Alien {
 	private String word;
 	private Image image;
 	private Image explo;
+	private Image heartImg; 
 	
 	public Alien(double x, double y, String word) {
 		this.x = x;
@@ -18,6 +19,8 @@ public class Alien {
 		this.dy = 1;
 		this.image = new Image("/Images/Alien.png"); 
 		this.explo = new Image("/Images/explosion.png");
+		this.heartImg = new Image("/Images/heart.png" , 50, 50, false, false);
+
 	}
 	
 	public double getX() {
@@ -44,6 +47,18 @@ public class Alien {
 	
 	public void explosion(GraphicsContext gc) {
 		gc.drawImage(explo, x - 150, y - 200);
+	}
+	
+	public void heart1(GraphicsContext gc) {
+		gc.drawImage(heartImg,5,5);
+	}
+	
+	public void heart2(GraphicsContext gc) {
+		gc.drawImage(heartImg,50,5);
+	}
+	
+	public void heart3(GraphicsContext gc) {
+		gc.drawImage(heartImg,95,5);
 	}
 
 }

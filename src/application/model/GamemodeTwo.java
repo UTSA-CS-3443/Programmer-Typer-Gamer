@@ -2,9 +2,8 @@ package application.model;
 
 import java.io.File;
 import java.util.concurrent.CopyOnWriteArrayList;
-
-import application.controller.GameTwoController;
 import application.controller.MainController;
+import application.controller.GameTwoController;
 import javafx.animation.AnimationTimer;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.scene.canvas.GraphicsContext;
@@ -37,6 +36,7 @@ public class GamemodeTwo {
 	public GamemodeTwo(GameTwoController controller) {
 		this.controller = controller;
 		WordReader randomWord = new WordReader();
+		WordReader.getRandomTimer();
 		aliens = new CopyOnWriteArrayList<Alien>();
 		aliens.add(new Alien(WordReader.getRandomAlienSpawn(), -175, WordReader.getRandomWord()));
 
@@ -109,12 +109,11 @@ public class GamemodeTwo {
 		else {
 			aliens.add(new Alien(WordReader.getRandomAlienSpawn(), -175 , WordReader.getRandomWord()));
 			counter = 1;
-			DIFFICULTY_VALUE = DIFFICULTY_VALUE - .1;
 		}
-		if(counter % Math.rint(DIFFICULTY_VALUE) == 0 ) {
+		if(counter % Math.rint(MainController.DIFFICULTY_VALUE) == 0 ) {
 			aliens.add(new Alien(WordReader.getRandomAlienSpawn(), -175 , WordReader.getRandomWord()));
+			WordReader.getRandomTimer();
 			counter = 1;
-			DIFFICULTY_VALUE = DIFFICULTY_VALUE - .1;
 		}
 	}
 
@@ -134,6 +133,22 @@ public class GamemodeTwo {
 				}
 				i++;
 				explosion.stop();
+			}
+			
+			if(MainController.lives == 3) {
+				alien.heart1(gc);
+				alien.heart2(gc);
+				alien.heart3(gc);
+
+			}
+			
+			if(MainController.lives == 2) {
+				alien.heart1(gc);
+				alien.heart2(gc);
+			}
+			
+			if(MainController.lives == 1) {
+				alien.heart1(gc);
 			}
 		}
 	}
