@@ -1,8 +1,10 @@
 package application.controller;
 
 import java.awt.Button;
+import java.io.File;
 import java.util.Random;
 
+import application.Main;
 import application.model.GamemodeOne;
 import application.model.WordReader;
 import javafx.beans.property.SimpleIntegerProperty;
@@ -17,6 +19,8 @@ import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 import javafx.stage.Stage; 
 
 public class MainController implements EventHandler<ActionEvent> {
@@ -40,12 +44,17 @@ public class MainController implements EventHandler<ActionEvent> {
 	private RadioButton cityBut;
 	@FXML
 	private RadioButton spaceBut;
+	@FXML
+	private CheckBox soundCheckBox;
 	public static boolean gameModeOne = false;
 	public static boolean gameModeTwo = false;
 	public static boolean gameModeThree = false;
 	private int easyNum = 1000;
 	private int mediumNum = 750;
 	private int hardNum = 500;
+	public Media sound;
+	public MediaPlayer mediaPlayer;
+	public boolean mediaBool;
 	
 	/*
 	 * if login successful, Main Menu opens. 
@@ -57,11 +66,29 @@ public class MainController implements EventHandler<ActionEvent> {
 	
 	public MainController() {
 		super();
+		this.mediaBool = true;
+		this.soundCheckBox = new CheckBox();
+		try {
+			String musicFile = "src/soundTrack/powerMove.mp3";
+			this.sound = new Media(new File(musicFile).toURI().toString());
+			this.mediaPlayer = new MediaPlayer(sound);
+			this.mediaPlayer.play();
+			
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
 	}
 	
-	@Override
-	public void handle(ActionEvent event) {
-		CheckBox box1 = new CheckBox();
+//	@Override
+	public void soundCheck(ActionEvent event) {
+		if (this.mediaBool == true) {
+			this.mediaBool = false;
+			this.mediaPlayer.pause();
+		}
+		else {
+			this.mediaBool = true;
+			this.mediaPlayer.play();
+		}
 	}
 	
 	public void Login(ActionEvent event) throws Exception {
