@@ -17,7 +17,7 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.MainController">
    <children>
-      <ImageView fitHeight="400.0" fitWidth="600.0">
+      <ImageView fx:id="curImage" fitHeight="400.0" fitWidth="600.0">
          <image>
             <Image url="@../../Images/nightsky.jpg" />
          </image>
@@ -121,7 +121,7 @@
                         <Font name="Consolas Bold" size="24.0" />
                      </font>
                   </Text>
-                  <RadioButton fx:id="oceanBut" contentDisplay="CENTER" mnemonicParsing="false" selected="true" text="Ocean" textFill="WHITE">
+                  <RadioButton fx:id="oceanBut" contentDisplay="CENTER" mnemonicParsing="false" onAction="#oceanViewChg" selected="true" text="Ocean" textFill="WHITE">
                      <toggleGroup>
                         <ToggleGroup fx:id="themeRadioButtons" />
                      </toggleGroup>
@@ -132,7 +132,7 @@
                         <Font name="Consolas" size="14.0" />
                      </font>
                   </RadioButton>
-                  <RadioButton fx:id="cityBut" mnemonicParsing="false" text="City" textFill="WHITE" toggleGroup="$themeRadioButtons">
+                  <RadioButton fx:id="cityBut" mnemonicParsing="false" onAction="#cityViewChg" text="City" textFill="WHITE" toggleGroup="$themeRadioButtons">
                      <VBox.margin>
                         <Insets top="10.0" />
                      </VBox.margin>
@@ -140,7 +140,7 @@
                         <Font name="Consolas" size="14.0" />
                      </font>
                   </RadioButton>
-                  <RadioButton fx:id="spaceBut" mnemonicParsing="false" text="Space" textFill="WHITE" toggleGroup="$themeRadioButtons">
+                  <RadioButton fx:id="spaceBut" mnemonicParsing="false" text="Desert" textFill="WHITE" toggleGroup="$themeRadioButtons">
                      <VBox.margin>
                         <Insets top="10.0" />
                      </VBox.margin>
