@@ -35,7 +35,7 @@ public class GamemodeOne {
 		WordReader randomWord = new WordReader();		
 		WordReader.getRandomTimer();
 		sharks = new CopyOnWriteArrayList<Shark>();
-		sharks.add(new Shark(300, WordReader.getRandomSpawn(), WordReader.getRandomWord()));
+		sharks.add(new Shark(1300, WordReader.getRandomSpawn(), WordReader.getRandomWord()));
 		
 		new AnimationTimer() {
 
