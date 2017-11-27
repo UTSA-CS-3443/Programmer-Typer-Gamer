@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="421.0" prefWidth="526.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.MainController">
+<AnchorPane prefHeight="421.0" prefWidth="526.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.PauseController">
    <children>
       <Pane layoutX="-1.0" layoutY="-5.0" prefHeight="429.0" prefWidth="600.0" style="-fx-background-color: #0077BE;">
          <children>
@@ -66,22 +66,22 @@
                   <Insets bottom="10.0" />
                </VBox.margin>
             </Pane>
-            <Button mnemonicParsing="false" onAction="#Game" prefHeight="27.0" prefWidth="124.0" text="Resume">
+            <Button fx:id="resumeButton" mnemonicParsing="false" onAction="#resume" prefHeight="27.0" prefWidth="124.0" text="Resume">
                <VBox.margin>
                   <Insets left="120.0" top="20.0" />
                </VBox.margin>
             </Button>
-            <Button mnemonicParsing="false" onAction="#ChangeDifficulty" text="Change Difficulty">
+            <Button fx:id="mainMenuButton" mnemonicParsing="false" onAction="#mainMenu" text="Main Menu">
                <VBox.margin>
                   <Insets left="120.0" top="20.0" />
                </VBox.margin>
             </Button>
-            <Button mnemonicParsing="false" onAction="#Login" prefHeight="27.0" prefWidth="124.0" text="Quit">
+            <Button fx:id="quitButton" mnemonicParsing="false" onAction="#quit" prefHeight="27.0" prefWidth="124.0" text="Quit">
                <VBox.margin>
                   <Insets left="120.0" top="20.0" />
                </VBox.margin>
             </Button>
-            <CheckBox mnemonicParsing="false" text="Sound Off">
+            <CheckBox fx:id="muteButton" mnemonicParsing="false" onAction="#mute" text="Sound Off">
                <VBox.margin>
                   <Insets left="20.0" top="50.0" />
                </VBox.margin>
