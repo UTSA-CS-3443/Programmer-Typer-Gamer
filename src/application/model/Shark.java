@@ -9,6 +9,8 @@ public class Shark {
 	private String word;
 	private Image image;
 	private Image bubbleImg;
+	private Image heartImg;
+
 	
 	public Shark(double x, double y, String word) {
 		this.x = x;
@@ -18,6 +20,8 @@ public class Shark {
 		this.dy = 0;
 		this.image = new Image("/Images/shark.png");
 		this.bubbleImg = new Image("/Images/bubbles.gif");
+		this.heartImg = new Image("/Images/heart.png" , 50, 50, false, false);
+
 	}
 	
 	public double getX() {
@@ -44,6 +48,18 @@ public class Shark {
 	
 	public void bubbles(GraphicsContext gc) {
 		gc.drawImage(bubbleImg, x - 50, y - 20);
+	}
+	
+	public void heart1(GraphicsContext gc) {
+		gc.drawImage(heartImg,5,5);
+	}
+	
+	public void heart2(GraphicsContext gc) {
+		gc.drawImage(heartImg,50,5);
+	}
+	
+	public void heart3(GraphicsContext gc) {
+		gc.drawImage(heartImg,95,5);
 	}
 
 }
