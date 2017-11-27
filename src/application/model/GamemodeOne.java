@@ -18,7 +18,7 @@ import javafx.stage.Stage;
 
 public class GamemodeOne {
 	private GameController controller;
-	private int counter = 0, lives = 3;
+	private int counter = 0;
 	private CopyOnWriteArrayList<Shark> sharks;
 	private boolean tru = false;
 	private boolean paused = false;
@@ -35,7 +35,7 @@ public class GamemodeOne {
 		WordReader randomWord = new WordReader();		
 		WordReader.getRandomTimer();
 		sharks = new CopyOnWriteArrayList<Shark>();
-		sharks.add(new Shark(1300, WordReader.getRandomSpawn(), WordReader.getRandomWord()));
+		sharks.add(new Shark(300, WordReader.getRandomSpawn(), WordReader.getRandomWord()));
 		
 		new AnimationTimer() {
 
@@ -65,9 +65,15 @@ public class GamemodeOne {
 			for(Shark shark: sharks) {
 				if(shark.getX() < -300) { //shark left screen, lose life
 					sharks.remove(shark);
-					lives--;
 					
-					if(lives <= 0) gameOver();
+					//G.B. lives
+					MainController.lives = MainController.lives - 1;
+					if(MainController.lives <= 0) {
+						MainController.lives = 0; //stops removing lives
+						//call fail state/game stop method
+					}
+					
+					if(MainController.lives <= 0) gameOver();
 				}
 				shark.update();
 			}
@@ -101,6 +107,22 @@ public class GamemodeOne {
 				}
 			i++;
 			bubbles.stop();
+			}
+			
+			if(MainController.lives == 3) {
+				shark.heart1(gc);
+				shark.heart2(gc);
+				shark.heart3(gc);
+
+			}
+			
+			if(MainController.lives == 2) {
+				shark.heart1(gc);
+				shark.heart2(gc);
+			}
+			
+			if(MainController.lives == 1) {
+				shark.heart1(gc);
 			}
 		}
 	}
