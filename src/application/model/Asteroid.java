@@ -8,7 +8,7 @@ public class Asteroid {
 	private double x, y, dx, dy;
 	private String word;
 	private Image image;
-	private Image explo;
+	private Image poof;
 	private Image heartImg; 
 	
 	public Asteroid(double x, double y, String word) {
@@ -18,7 +18,7 @@ public class Asteroid {
 		this.dx = -1;
 		this.dy = 0;
 		this.image = new Image("/Images/asteroid.png"); 
-		this.explo = new Image("/Images/explosion.png");
+		this.poof = new Image("/Images/poof.png", 300, 300, false, false);
 		this.heartImg = new Image("/Images/heart.png" , 50, 50, false, false);
 
 	}
@@ -46,7 +46,7 @@ public class Asteroid {
 	}
 	
 	public void explosion(GraphicsContext gc) {
-		gc.drawImage(explo, x - 150, y - 200);
+		gc.drawImage(poof, x - 50, y - 70);
 	}
 	
 	public void heart1(GraphicsContext gc) {

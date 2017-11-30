@@ -26,9 +26,9 @@ public class GamemodeThree {
 	private boolean gameOver = false;
 	
 	//Sets up the sounds that happen when a shark dies
-	String musicFile = "src/soundTrack/bubbles.mp3";     // For example
+	String musicFile = "src/soundTrack/poof.mp3";     // For example
 	Media sound1 = new Media(new File(musicFile).toURI().toString());
-	MediaPlayer bubbles = new MediaPlayer(sound1);
+	MediaPlayer poof = new MediaPlayer(sound1);
 	
 	
 	public GamemodeThree(GameThreeController controller) {
@@ -98,7 +98,7 @@ public class GamemodeThree {
 			while(tru == true) {
 				//add explosion
 				asteroid.explosion(gc);
-				bubbles.play();
+				poof.play();
 				
 				
 				if(i == 2) {
@@ -107,7 +107,7 @@ public class GamemodeThree {
 					
 				}
 			i++;
-			bubbles.stop();
+			poof.stop();
 			}
 			
 			if(MainController.lives == 3) {
