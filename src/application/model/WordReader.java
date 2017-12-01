@@ -10,7 +10,7 @@ import application.controller.MainController;
 
 /**
  * 
- * @author Genaro Barrera
+ * @author Team Garbage
  * 
  * WordReader reads a line from either the easy, medium, or hard word banks. It adds the read word to an array list
  * (words) and then returns a random word from the file through the getRandomWord method.
