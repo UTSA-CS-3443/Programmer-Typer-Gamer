@@ -26,6 +26,10 @@ import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.stage.Stage; 
 
+/**
+ * @author Team Garbage
+ * This class runs all the beginning interactions when the game is launched and the difficulty selections. 
+ */
 public class MainController implements EventHandler<ActionEvent> {
 	@FXML
 	private Label status; 
@@ -34,7 +38,8 @@ public class MainController implements EventHandler<ActionEvent> {
 	@FXML
 	private Label myMessage;
 	@FXML
-	private boolean start = true; 
+	private boolean start = true;
+	//The variables that link to the radio buttons on the main screen
 	@FXML
 	private RadioButton easyBut;
 	@FXML
@@ -49,19 +54,19 @@ public class MainController implements EventHandler<ActionEvent> {
 	private RadioButton spaceBut;
 	@FXML
 	private CheckBox soundCheckBox;
+	//Used to select what theme is used
 	public static boolean gameModeOne = false;
 	public static boolean gameModeTwo = false;
 	public static boolean gameModeThree = false;
+	//Used to set the spawn rate of the enemies
 	public static double DIFFICULTY_VALUE;
-	private int easyNum = 1000;
-	private int mediumNum = 750;
-	private int hardNum = 500;
+	//Used to set up the music that is played 
 	public Media sound;
 	public MediaPlayer mediaPlayer;
 	public boolean mediaBool;
 	@FXML
 	private ImageView curImage;
-	public static boolean soundFixer;
+	public static boolean soundFixer; //Used to fix a looping issue with the sound
 	
 	//G.B. lives global constants
 		public static int lives = 3; //start with 3 lives
@@ -117,60 +122,65 @@ public class MainController implements EventHandler<ActionEvent> {
 			this.mediaPlayer.play();
 		}
 	}
-	
+	//Runs the ocean game mode if the right button is selected
 	public void oceanViewChg(ActionEvent event) {
 		Image image = new Image(getClass().getResource("/Images/oceanGameBg.jpg").toExternalForm());
 		this.curImage.setImage(image);
 	}
-	
+	//Runs the City game mode if the right button is selected
 	public void cityViewChg(ActionEvent event) {
 		Image image = new Image(getClass().getResource("/Images/City.jpg").toExternalForm());
 		this.curImage.setImage(image);
 	}
-	
+	//Runs the Space game mode if the right button is selected
 	public void spaceViewChg(ActionEvent event) {
 		Image image = new Image(getClass().getResource("/Images/nebula.jpg").toExternalForm());
 		this.curImage.setImage(image);
 	}
-	
+	//Runs when the start button is clicked. 
 	public void Login(ActionEvent event) throws Exception {
+		//Sets difficulty values to easy
 		if(easyBut.isSelected() == true) {
-			//DIFFICULTY_VALUE = easyNum;
 			WordReader.easy = true;
 			WordReader.medium = false;
 			WordReader.hard = false;
 			POINTS_PER_WORD = 100;
 		}
+		//Sets the difficulty value to medium
 		if(mediumBut.isSelected() == true) {
-			//DIFFICULTY_VALUE = mediumNum;
 			WordReader.easy = false;
 			WordReader.medium = true;
 			WordReader.hard = false;
 			POINTS_PER_WORD = 200;
 		}
+		//Sets the difficulty value to hard
 		if(hardBut.isSelected() == true) {
-			//DIFFICULTY_VALUE = hardNum;
 			WordReader.easy = false;
 			WordReader.medium = false;
 			WordReader.hard = true;
 			POINTS_PER_WORD = 300;
 		}
+		//Sets the theme values to the ocean setting
 		if(oceanBut.isSelected() == true) {
 			gameModeOne = true;
 			gameModeTwo = false;
 			gameModeThree = false;
 		}
+		//Sets teh theme value to the city setting
 		if(cityBut.isSelected() == true) {
 			gameModeOne = false;
 			gameModeTwo = true;
 			gameModeThree = false;
 		}
+		//Sets the theme value to the space setting
 		if(spaceBut.isSelected() == true) {
 			gameModeOne = false;
 			gameModeTwo = false;
 			gameModeThree = true;
 		}
+		//Used to fix a bug where the lives wouldn't reset if you quit out of a game mode with lives missing.
 		lives = 3;
+		//Launches to the next scene.
 		Parent root = FXMLLoader.load(getClass().getResource("/application/view/Login.fxml")); // Loads Main Menu fxml 
 		Scene scene = new Scene(root); 
 		scene.getStylesheets().add(getClass().getResource("/application/application.css").toExternalForm()); // adds style from css
@@ -184,37 +194,6 @@ public class MainController implements EventHandler<ActionEvent> {
 		// TODO Auto-generated method stub
 		
 	}
-	
-//	//GameStage
-//	public void Game(ActionEvent event) throws Exception {		
-//
-//		Parent gameViewParent = FXMLLoader.load(getClass().getResource("/view/Game.fxml")); // Loads Main Menu fxml 
-//		Scene gameViewScene = new Scene(gameViewParent);
-//		
-//		Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
-//		window.setScene(gameViewScene);
-//		window.show(); 
-//	}
-//	
-//	public void Pause(ActionEvent event) throws Exception {		
-//
-//		Parent pauseViewParent = FXMLLoader.load(getClass().getResource("/view/PauseMenu.fxml")); // Loads Main Menu fxml 
-//		Scene pauseViewScene = new Scene(pauseViewParent);
-//		
-//		Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
-//		window.setScene(pauseViewScene);
-//		window.show(); 
-//	}
-//	
-//	public void ChangeDifficulty(ActionEvent event) throws Exception {		
-//
-//		Parent DiffViewParent = FXMLLoader.load(getClass().getResource("/view/ChangeDifficulty.fxml")); // Loads Main Menu fxml 
-//		Scene DiffViewScene = new Scene(DiffViewParent);
-//		
-//		Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
-//		window.setScene(DiffViewScene);
-//		window.show(); 
-//	}
 }
 
 

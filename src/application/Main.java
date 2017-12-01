@@ -29,15 +29,10 @@ public class Main extends Application {
 	public void start(Stage primaryStage) {
 		
 		try {
-//			String musicFile = "src/soundTrack/powerMove.mp3";     // For example
-//
-//			Media sound = new Media(new File(musicFile).toURI().toString());
-//			MediaPlayer mediaPlayer = new MediaPlayer(sound);
-//			mediaPlayer.play();
-			
 			Parent root = FXMLLoader.load(getClass().getResource("view/Main.fxml"));
 			primaryStage.setScene(new Scene(root, 600, 400));
 			primaryStage.setTitle("Keyboard Hero");
+			primaryStage.centerOnScreen();
 			primaryStage.show();
 			
 		} catch(Exception e) {
