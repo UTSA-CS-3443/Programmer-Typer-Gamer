@@ -2,6 +2,7 @@ package application.model;
 
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
+import javafx.scene.text.Font;
 
 public class Shark {
 	
@@ -10,7 +11,7 @@ public class Shark {
 	private Image image;
 	private Image bubbleImg;
 	private Image heartImg;
-
+	private boolean status;
 	
 	public Shark(double x, double y, String word) {
 		this.x = x;
@@ -21,7 +22,7 @@ public class Shark {
 		this.image = new Image("/Images/shark.png");
 		this.bubbleImg = new Image("/Images/bubbles.gif");
 		this.heartImg = new Image("/Images/heart.png" , 50, 50, false, false);
-
+		this.status = false;
 	}
 	
 	public double getX() {
@@ -36,6 +37,13 @@ public class Shark {
 		return word;
 	}
 	
+	public boolean getStatus() {
+		return status;
+	}
+	
+	public void setStatus(boolean change) {
+		this.status = change;
+	}
 	public void update() {
 		x += dx;
 		y += dy;
@@ -43,7 +51,8 @@ public class Shark {
 	
 	public void draw(GraphicsContext gc) {
 		gc.drawImage(image, x, y);
-		gc.fillText(word, x + (image.getWidth() / 3), y + (image.getHeight() / 2));
+		gc.setFont(new Font("TimesRomen", 28));
+		gc.fillText(word, x + (image.getWidth() / 3) - 40, y + (image.getHeight() / 2));
 	}
 	
 	public void bubbles(GraphicsContext gc) {

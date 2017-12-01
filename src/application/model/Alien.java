@@ -2,6 +2,7 @@ package application.model;
 
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
+import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 
 
@@ -11,6 +12,8 @@ public class Alien {
 	private Image image; //This is the image on the object
 	private Image explo; //This is the explosion image 
 	private Image heartImg; //This is the image of the lives
+	private boolean status; //Creates a boolean used to deleate the correct object
+
 	
 	/**
 	 * @param x
@@ -27,7 +30,7 @@ public class Alien {
 		this.image = new Image("/Images/Alien.png"); 
 		this.explo = new Image("/Images/explosion.png");
 		this.heartImg = new Image("/Images/heart.png" , 50, 50, false, false);
-
+		this.status = false;
 	}
 	
 	/**
@@ -51,6 +54,20 @@ public class Alien {
 	}
 	
 	/**
+	 * @return the status boolean
+	 */
+	public boolean getStatus() {
+		return status;
+	}
+	
+	/**
+	 * @param change modifies the status boolean
+	 */
+	public void setStatus(boolean change) {
+		this.status = change;
+	}
+	
+	/**
 	 * updates the x and y based on the dx and the dy values
 	 */
 	public void update() {
@@ -63,7 +80,9 @@ public class Alien {
 	 */
 	public void draw(GraphicsContext gc) {
 		gc.drawImage(image, x, y);
-		gc.fillText(word, x + (image.getWidth() / 2)  - 15, y + (image.getHeight() / 2) + 10);
+		gc.setFont(new Font("TimesRomen", 28));
+		//gc.setFill(Color.WHITE);
+		gc.fillText(word, x + (image.getWidth() / 2)  - 50, y + (image.getHeight() / 2) + 10);
 	}
 	
 	/**

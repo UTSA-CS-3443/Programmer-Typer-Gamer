@@ -20,7 +20,6 @@ public class GamemodeOne {
 	private GameController controller;
 	private int counter = 0;
 	private CopyOnWriteArrayList<Shark> sharks;
-	private boolean tru = false;
 	private boolean paused = false;
 	private boolean gameOver = false;
 	
@@ -52,8 +51,7 @@ public class GamemodeOne {
 		//System.out.println("Looking for word " + input);
 		for(Shark shark: sharks) {
 			if(shark.getWord().toLowerCase().equals(input.toLowerCase())) {
-				//System.out.println("Found shark with word " + input + ". Removing...");
-				tru = true; 
+				shark.setStatus(true);
 			}
 		}
 	}
@@ -94,16 +92,14 @@ public class GamemodeOne {
 		int i = 0;
 		for(Shark shark: sharks) {
 			shark.draw(gc);
-			while(tru == true) {
-				//add explosion
+			while(shark.getStatus() == true) {
 				shark.bubbles(gc);
 				bubbles.play();
 				
 				
 				if(i == 2) {
 					sharks.remove(shark);
-					tru = false; 
-					
+					shark.setStatus(false);
 				}
 			i++;
 			bubbles.stop();

@@ -21,7 +21,6 @@ public class GamemodeThree {
 	private GameThreeController controller;
 	private int counter = 0;
 	private CopyOnWriteArrayList<Asteroid> asteroids;
-	private boolean tru = false;
 	private boolean paused = false;
 	private boolean gameOver = false;
 	
@@ -53,8 +52,7 @@ public class GamemodeThree {
 		//System.out.println("Looking for word " + input);
 		for(Asteroid asteroid: asteroids) {
 			if(asteroid.getWord().toLowerCase().equals(input.toLowerCase())) {
-				//System.out.println("Found shark with word " + input + ". Removing...");
-				tru = true; 
+				asteroid.setStatus(true);
 			}
 		}
 	}
@@ -95,7 +93,7 @@ public class GamemodeThree {
 		int i = 0;
 		for(Asteroid asteroid: asteroids) {
 			asteroid.draw(gc);
-			while(tru == true) {
+			while(asteroid.getStatus() == true) {
 				//add explosion
 				asteroid.explosion(gc);
 				poof.play();
@@ -103,7 +101,7 @@ public class GamemodeThree {
 				
 				if(i == 2) {
 					asteroids.remove(asteroid);
-					tru = false; 
+					asteroid.setStatus(false); 
 					
 				}
 			i++;

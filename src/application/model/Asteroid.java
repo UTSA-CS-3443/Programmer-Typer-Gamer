@@ -2,6 +2,7 @@ package application.model;
 
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
+import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 
 public class Asteroid {
@@ -10,6 +11,7 @@ public class Asteroid {
 	private Image image;
 	private Image poof;
 	private Image heartImg; 
+	private boolean status;
 	
 	public Asteroid(double x, double y, String word) {
 		this.x = x;
@@ -20,6 +22,7 @@ public class Asteroid {
 		this.image = new Image("/Images/asteroid.png"); 
 		this.poof = new Image("/Images/poof.png", 300, 300, false, false);
 		this.heartImg = new Image("/Images/heart.png" , 50, 50, false, false);
+		this.status = false;
 
 	}
 	
@@ -40,9 +43,19 @@ public class Asteroid {
 		y += dy;
 	}
 	
+	public boolean getStatus() {
+		return status;
+	}
+	
+	public void setStatus(boolean change) {
+		this.status = change;
+	}
+	
 	public void draw(GraphicsContext gc) {
 		gc.drawImage(image, x, y);
-		gc.fillText(word, x + (image.getWidth() / 2)  - 15, y + (image.getHeight() / 2) + 10);
+		gc.setFont(new Font("TimesRomen", 28));
+		gc.setFill(Color.WHITE);
+		gc.fillText(word, x + (image.getWidth() / 2)  - 60, y + (image.getHeight() / 2) + 10);
 	}
 	
 	public void explosion(GraphicsContext gc) {
