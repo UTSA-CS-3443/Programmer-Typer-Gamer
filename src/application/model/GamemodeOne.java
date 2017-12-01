@@ -25,7 +25,7 @@ import javafx.stage.Stage;
  * whether the game is playable, paused, or has ended   
  *
  */
-public class GamemodeOne {
+public class GamemodeOne { 
 	private GameController controller;
 	private int counter = 0;
 	private CopyOnWriteArrayList<Shark> sharks;
@@ -76,8 +76,7 @@ public class GamemodeOne {
 
 				//if you enter the word wrong
 			} else {
-				MainController.scoreModifier = 1.0f; //reset the Bonus
-				
+				MainController.scoreModifier = 1.0f; //reset the Bonus	
 			}
 		}
 	}
@@ -100,14 +99,13 @@ public class GamemodeOne {
 					
 					//G.B. enemy goes past player
 					MainController.scoreModifier = 1.0f; //reset the Bonus
-					System.out.println("scoreModifier " + MainController.scoreModifier); //G.B. score test
+					//System.out.println("scoreModifier " + MainController.scoreModifier); //G.B. score test
 
 					//G.B. lives
 					MainController.lives = MainController.lives - 1;
 					if(MainController.lives <= 0) {
 						MainController.lives = 0; //stops removing lives
-					
-					if(MainController.lives <= 0) gameOver();
+                        gameOver();
 					}
 				}
 				shark.update();

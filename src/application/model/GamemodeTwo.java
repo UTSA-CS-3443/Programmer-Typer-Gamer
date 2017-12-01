@@ -72,8 +72,8 @@ public class GamemodeTwo {
 				MainController.scoreModifier = 1.0f; //reset the Bonus
 
 			}
-			System.out.println(MainController.score);
-			System.out.println("scoreModifier " + MainController.scoreModifier); //G.B. score test
+			//System.out.println(MainController.score);
+			//System.out.println("scoreModifier " + MainController.scoreModifier); //G.B. score test
 
 		}
 	}
@@ -90,17 +90,15 @@ public class GamemodeTwo {
 
 					//G.B. enemy goes past player
 					MainController.scoreModifier = 1.0f; //reset the Bonus
-					System.out.println("scoreModifier " + MainController.scoreModifier); //G.B. score test
+					//System.out.println("scoreModifier " + MainController.scoreModifier); //G.B. score test
 
 					//G.B. lives
-
-
 					MainController.lives = MainController.lives - 1;
 					if(MainController.lives <= 0) {
 						MainController.lives = 0; //stops removing lives
 						gameOver();
 					}
-					System.out.println("lives " + MainController.lives); //gb lives test
+					//System.out.println("lives " + MainController.lives); //gb lives test
 				}
 				alien.update();
 			}
