@@ -170,6 +170,7 @@ public class MainController implements EventHandler<ActionEvent> {
 			gameModeTwo = false;
 			gameModeThree = true;
 		}
+		lives = 3;
 		Parent root = FXMLLoader.load(getClass().getResource("/application/view/Login.fxml")); // Loads Main Menu fxml 
 		Scene scene = new Scene(root); 
 		scene.getStylesheets().add(getClass().getResource("/application/application.css").toExternalForm()); // adds style from css
