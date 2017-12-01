@@ -10,6 +10,12 @@ import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 
+/**
+ *  @author Team Garbage
+ *
+ *
+ */
+
 public class GamemodeTwo {
 	private GameTwoController controller;
 	private int counter = 0;
