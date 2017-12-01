@@ -6,20 +6,24 @@ import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 
 
+/**
+ * @author Team Garbage
+ * This class is for the creation, upkeep, and interactions of the alien objects
+ */
 public class Alien {
 	private double x, y, dx, dy; //These are used for the position and the movement of the object
 	private String word; //This holds the string attached to the object
 	private Image image; //This is the image on the object
 	private Image explo; //This is the explosion image 
 	private Image heartImg; //This is the image of the lives
-	private boolean status; //Creates a boolean used to deleate the correct object
+	private boolean status; //Creates a boolean used to delete the correct object
 
 	
 	/**
 	 * @param x
 	 * @param y
 	 * @param word
-	 * This creates the Aliens object that we are using
+	 * Constructor for the Alien object
 	 */
 	public Alien(double x, double y, String word) {
 		this.x = x;
