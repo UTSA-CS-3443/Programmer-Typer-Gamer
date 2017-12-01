@@ -21,7 +21,6 @@ public class GamemodeTwo {
 	private int counter = 0;
 	private CopyOnWriteArrayList<Alien> aliens;
 	public static double DIFFICULTY_VALUE = 500; //The value used to change the difficulty. 
-	private boolean tru = false;
 	private boolean paused = false;
 	private boolean gameOver = false;
 	String musicFile = "src/soundTrack/explosion.mp3";     // For example
@@ -63,13 +62,7 @@ public class GamemodeTwo {
 
 			//if you get word correct
 			if(alien.getWord().toLowerCase().equals(input.toLowerCase())) {
-
-				//System.out.println("Found shark with word " + input + ". Removing...");
-
-
-				//aliens.remove(alien);
-				tru = true;
-
+				alien.setStatus(true);
 				//G.B. score
 				MainController.score.set(MainController.score.get() + (int)(MainController.scoreModifier * MainController.POINTS_PER_WORD));
 				MainController.scoreModifier += MainController.BONUS_MODIFIER;
@@ -128,14 +121,14 @@ public class GamemodeTwo {
 		int i = 0;
 		for(Alien alien: aliens) {
 			alien.draw(gc);
-			while(tru == true) {
+			while(alien.getStatus() == true) {
 				//add explosion
 				alien.explosion(gc);
 				explosion.play();
 
 				if(i == 2) {
 					aliens.remove(alien);
-					tru = false; 
+					alien.setStatus(false); 
 				}
 				i++;
 				explosion.stop();

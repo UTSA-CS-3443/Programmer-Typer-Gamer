@@ -21,14 +21,13 @@ public class GamemodeThree {
 	private GameThreeController controller;
 	private int counter = 0;
 	private CopyOnWriteArrayList<Asteroid> asteroids;
-	private boolean tru = false;
 	private boolean paused = false;
 	private boolean gameOver = false;
 	
 	//Sets up the sounds that happen when a shark dies
-	String musicFile = "src/soundTrack/bubbles.mp3";     // For example
+	String musicFile = "src/soundTrack/poof.mp3";     // For example
 	Media sound1 = new Media(new File(musicFile).toURI().toString());
-	MediaPlayer bubbles = new MediaPlayer(sound1);
+	MediaPlayer poof = new MediaPlayer(sound1);
 	
 	
 	public GamemodeThree(GameThreeController controller) {
@@ -53,8 +52,7 @@ public class GamemodeThree {
 		//System.out.println("Looking for word " + input);
 		for(Asteroid asteroid: asteroids) {
 			if(asteroid.getWord().toLowerCase().equals(input.toLowerCase())) {
-				//System.out.println("Found shark with word " + input + ". Removing...");
-				tru = true; 
+				asteroid.setStatus(true);
 			}
 		}
 	}
@@ -95,19 +93,19 @@ public class GamemodeThree {
 		int i = 0;
 		for(Asteroid asteroid: asteroids) {
 			asteroid.draw(gc);
-			while(tru == true) {
+			while(asteroid.getStatus() == true) {
 				//add explosion
 				asteroid.explosion(gc);
-				bubbles.play();
+				poof.play();
 				
 				
 				if(i == 2) {
 					asteroids.remove(asteroid);
-					tru = false; 
+					asteroid.setStatus(false); 
 					
 				}
 			i++;
-			bubbles.stop();
+			poof.stop();
 			}
 			
 			if(MainController.lives == 3) {
