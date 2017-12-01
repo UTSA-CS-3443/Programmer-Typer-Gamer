@@ -64,10 +64,8 @@ public class GamemodeOne {
 	 * @param input //the word the player types
 	 */
 	public void checkWord(String input) {
-		//System.out.println("Looking for word " + input);
 		for(Shark shark: sharks) {
 			if(shark.getWord().toLowerCase().equals(input.toLowerCase())) {
-
 				shark.setStatus(true);
 
 				//G.B. score
