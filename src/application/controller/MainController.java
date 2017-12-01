@@ -61,6 +61,7 @@ public class MainController implements EventHandler<ActionEvent> {
 	public boolean mediaBool;
 	@FXML
 	private ImageView curImage;
+	public static boolean soundFixer;
 	
 	//G.B. lives global constants
 		public static int lives = 3; //start with 3 lives
@@ -92,10 +93,13 @@ public class MainController implements EventHandler<ActionEvent> {
 		this.mediaBool = true;
 		this.soundCheckBox = new CheckBox();
 		try {
+			if(soundFixer == false) {
 			String musicFile = "src/soundTrack/powerMove.mp3";
 			this.sound = new Media(new File(musicFile).toURI().toString());
 			this.mediaPlayer = new MediaPlayer(sound);
 			this.mediaPlayer.play();
+			soundFixer = true;
+			}
 			
 		} catch(Exception e) {
 			e.printStackTrace();
