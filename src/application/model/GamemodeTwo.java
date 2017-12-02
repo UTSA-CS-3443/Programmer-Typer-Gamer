@@ -11,11 +11,14 @@ import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 
 /**
- *  @author Team Garbage
- *
+ * @author Team Garbage
+ * 
+ * This class is the model code for GamemodeTwo
+ * GamemodeTwo runs the major interactions between the player, the enemies, and the game
+ * methods in this class keep track of lives, score, whether enemies needs to be spawned or removed, and
+ * whether the game is playable, paused, or has ended   
  *
  */
-
 public class GamemodeTwo {
 	private GameTwoController controller;
 	private int counter = 0;
@@ -38,7 +41,7 @@ public class GamemodeTwo {
     private float scoreModifier = 1.0f;
 
 	
-	public GamemodeTwo(GameTwoController controller) {
+	public GamemodeTwo(GameTwoController controller) { //constructor
 		this.controller = controller;
 		WordReader randomWord = new WordReader();
 		WordReader.getRandomTimer();
@@ -56,6 +59,14 @@ public class GamemodeTwo {
 		}.start();
 	}
 
+	/**
+	 * checkWord checks whether the word the player has typed matches with the words on the enemies. 
+	 * If it does it sets the boolean variable tru to true, it increases the players score, and it adds a bonus 
+	 * to the scoreModifier.
+	 * Else the scoreModifier is reset so a bonus score isn't applied to missed words
+	 * 
+	 * @param input //the word the player types
+	 */
 	public void checkWord(String input) {
 		//System.out.println("Looking for word " + input);
 		for(Alien alien: aliens) {
@@ -75,7 +86,14 @@ public class GamemodeTwo {
 		}
 	}
 
-
+	/**
+	 * update tracks whether an enemy has gone past the player
+	 * if so the player looses a life and the scoreModifier bonus is reset
+	 * if lives decrease down to 0 the gameOver method is called
+	 * if no sharks are on screen a shark is spawned
+	 * also difficulty values are updated here
+	 * 
+	 */
 	public void update() {
 		if(paused) return;
 		
@@ -111,6 +129,13 @@ public class GamemodeTwo {
 		}
 	}
 
+	/**
+	 * draws the enemies and adds death effects when an enemy is removed
+	 * once an enemy has been removed, tru is set back to false
+	 * lives are also drawn in this method, number of hearts drawn depend on the number of lives the player has  
+	 * 
+	 * @param gc
+	 */
 	public void draw(GraphicsContext gc) {
 		gc.clearRect(0, 0, 1280, 720);
 		int i = 0;
@@ -147,10 +172,19 @@ public class GamemodeTwo {
 		}
 	}
 	
+	/**
+	 * if set to true, this method pauses the game
+	 * 
+	 * @param paused
+	 */
 	public void setPaused(boolean paused) {
 		this.paused = paused;
 	}
 	
+	/**
+	 * if set to true, this method ends the game
+	 * 
+	 */
 	public void gameOver() {
 		gameOver = true;
 		controller.gameOver();
