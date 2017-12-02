@@ -25,6 +25,10 @@ import javafx.stage.Stage;
  * whether the game is playable, paused, or has ended   
  *
  */
+
+
+
+
 public class GamemodeOne { 
 	private GameController controller;
 	private int counter = 0;

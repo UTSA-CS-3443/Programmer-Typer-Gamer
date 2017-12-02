@@ -67,5 +67,10 @@
             <Button fx:id="quit2Button" mnemonicParsing="false" onAction="#quit" text="Quit" />
          </children>
       </VBox>
+      <Label fx:id="Score" layoutX="1096.0" prefHeight="77.0" prefWidth="185.0" textFill="WHITE">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

@@ -27,6 +27,8 @@ public class GameThreeController implements EventHandler<ActionEvent>{
 	@FXML public Canvas canvas;
 	@FXML public TextField wordField;
 	
+	@FXML public Label Score; 
+	
 	@FXML public VBox pauseMenu;
 	@FXML public Button resumeButton;
 	@FXML public Button mainMenuButton;
@@ -52,6 +54,10 @@ public class GameThreeController implements EventHandler<ActionEvent>{
 			 TextField field = (TextField)event.getSource();
 			 mode.checkWord(field.getText());
 			 field.clear();
+			 
+			 String str = String.valueOf(MainController.score.get());
+			 Score.setText("SCORE: " + str);
+			 
 		 } 
 	}
 	
@@ -89,7 +95,10 @@ public class GameThreeController implements EventHandler<ActionEvent>{
 		
 		Stage window = (Stage) canvas.getScene().getWindow();
 		window.setScene(menuViewScene);
-		window.show(); 
+		window.show();
+		//reset score and bonus modifier
+		MainController.score.setValue(0);
+		MainController.scoreModifier = 1.0f;
 	}
 	
 	public void quit() {
@@ -99,5 +108,9 @@ public class GameThreeController implements EventHandler<ActionEvent>{
 	public void gameOver() {
 		mode.setPaused(true);
 		gameOver3Menu.setVisible(true);
+		
+		//reset score and bonus modifier
+		MainController.score.setValue(0);
+		MainController.scoreModifier = 1.0f;
 	}
 }

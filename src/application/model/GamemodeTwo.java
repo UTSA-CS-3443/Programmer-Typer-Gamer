@@ -70,10 +70,7 @@ public class GamemodeTwo {
 				//if you enter the word wrong
 			} else {
 				MainController.scoreModifier = 1.0f; //reset the Bonus
-
 			}
-			//System.out.println(MainController.score);
-			//System.out.println("scoreModifier " + MainController.scoreModifier); //G.B. score test
 
 		}
 	}

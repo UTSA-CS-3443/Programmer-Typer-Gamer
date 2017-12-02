@@ -2,6 +2,8 @@
 
 import java.io.IOException;
 
+import javax.management.StringValueExp;
+
 import application.model.GamemodeOne;
 import application.model.GamemodeTwo;
 import javafx.event.ActionEvent;
@@ -25,6 +27,8 @@ public class GameTwoController implements EventHandler<ActionEvent>{
 	public static GamemodeTwo mode;
 	@FXML public Canvas canvas;
 	@FXML public TextField wordField;
+	
+	@FXML public Label Score;
 	
 	@FXML public VBox pauseMenu;
 	@FXML public Button resumeButton;
@@ -51,6 +55,9 @@ public class GameTwoController implements EventHandler<ActionEvent>{
 			 TextField field = (TextField)event.getSource();
 			 mode.checkWord(field.getText());
 			 field.clear();
+			 
+			 String str = String.valueOf(MainController.score.get());
+			 Score.setText("SCORE: " + str);
 		 } 
 	}
 	
@@ -88,7 +95,11 @@ public class GameTwoController implements EventHandler<ActionEvent>{
 		
 		Stage window = (Stage) canvas.getScene().getWindow();
 		window.setScene(menuViewScene);
-		window.show(); 
+		window.show();
+		
+		//reset score and bonus modifier
+		MainController.score.setValue(0);
+		MainController.scoreModifier = 1.0f;
 	}
 	
 	public void quit() {
@@ -98,5 +109,9 @@ public class GameTwoController implements EventHandler<ActionEvent>{
 	public void gameOver() {
 		mode.setPaused(true);
 		gameOver2Menu.setVisible(true);
+		
+		//reset score and bonus modifier
+		MainController.score.setValue(0);
+		MainController.scoreModifier = 1.0f;
 	}
 }
