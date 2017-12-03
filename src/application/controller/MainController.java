@@ -64,6 +64,7 @@ public class MainController implements EventHandler<ActionEvent> {
 	public Media sound;
 	public MediaPlayer mediaPlayer;
 	public boolean mediaBool;
+	// Current background image
 	@FXML
 	private ImageView curImage;
 	public static boolean soundFixer; //Used to fix a looping issue with the sound
@@ -111,8 +112,11 @@ public class MainController implements EventHandler<ActionEvent> {
 		}
 	}
 	
-//	@Override
-	public void soundCheck(ActionEvent event) {
+	/**
+	 * 
+	 * Pauses the audio or plays the audio
+	 */
+	public void soundCheck() {
 		if (this.mediaBool == true) {
 			this.mediaBool = false;
 			this.mediaPlayer.pause();
@@ -122,51 +126,52 @@ public class MainController implements EventHandler<ActionEvent> {
 			this.mediaPlayer.play();
 		}
 	}
-	//Runs the ocean game mode if the right button is selected
+	// Changes to the ocean background when the theme radio button is selected
 	public void oceanViewChg(ActionEvent event) {
 		Image image = new Image(getClass().getResource("/Images/oceanGameBg.jpg").toExternalForm());
 		this.curImage.setImage(image);
 	}
-	//Runs the City game mode if the right button is selected
+	// Changes to the city background when the theme radio button is selected
 	public void cityViewChg(ActionEvent event) {
 		Image image = new Image(getClass().getResource("/Images/City.jpg").toExternalForm());
 		this.curImage.setImage(image);
 	}
-	//Runs the Space game mode if the right button is selected
+	// Changes to the space background when the theme radio button is selected
 	public void spaceViewChg(ActionEvent event) {
 		Image image = new Image(getClass().getResource("/Images/nebula.jpg").toExternalForm());
 		this.curImage.setImage(image);
 	}
-	//Runs when the start button is clicked. 
+	
+	// Runs when the start button is clicked. 
 	public void Login(ActionEvent event) throws Exception {
-		//Sets difficulty values to easy
+		// Sets difficulty values to easy
 		if(easyBut.isSelected() == true) {
 			WordReader.easy = true;
 			WordReader.medium = false;
 			WordReader.hard = false;
 			POINTS_PER_WORD = 100;
 		}
-		//Sets the difficulty value to medium
+		// Sets the difficulty value to medium
 		if(mediumBut.isSelected() == true) {
 			WordReader.easy = false;
 			WordReader.medium = true;
 			WordReader.hard = false;
 			POINTS_PER_WORD = 200;
 		}
-		//Sets the difficulty value to hard
+		// Sets the difficulty value to hard
 		if(hardBut.isSelected() == true) {
 			WordReader.easy = false;
 			WordReader.medium = false;
 			WordReader.hard = true;
 			POINTS_PER_WORD = 300;
 		}
-		//Sets the theme values to the ocean setting
+		// Sets the theme values to the ocean setting
 		if(oceanBut.isSelected() == true) {
 			gameModeOne = true;
 			gameModeTwo = false;
 			gameModeThree = false;
 		}
-		//Sets teh theme value to the city setting
+		// Sets the theme value to the city setting
 		if(cityBut.isSelected() == true) {
 			gameModeOne = false;
 			gameModeTwo = true;
@@ -178,9 +183,14 @@ public class MainController implements EventHandler<ActionEvent> {
 			gameModeTwo = false;
 			gameModeThree = true;
 		}
-		//Used to fix a bug where the lives wouldn't reset if you quit out of a game mode with lives missing.
+		// Used to fix a bug where the lives wouldn't reset if you quit out of a game mode with lives missing.
 		lives = 3;
-		//Launches to the next scene.
+		
+		// When transitioning to login screen, stop the audio
+		this.mediaBool = false;
+		this.mediaPlayer.pause();
+		
+		// Launches to the next scene.
 		Parent root = FXMLLoader.load(getClass().getResource("/application/view/Login.fxml")); // Loads Main Menu fxml 
 		Scene scene = new Scene(root); 
 		scene.getStylesheets().add(getClass().getResource("/application/application.css").toExternalForm()); // adds style from css
@@ -189,10 +199,11 @@ public class MainController implements EventHandler<ActionEvent> {
 		window.show();
 	}
 
+	/**
+	 * handle method for processing buttons, but we used direct login button method
+	 */
 	@Override
 	public void handle(ActionEvent arg0) {
-		// TODO Auto-generated method stub
-		
 	}
 }
 

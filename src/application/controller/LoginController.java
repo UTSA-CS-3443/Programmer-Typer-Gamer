@@ -17,6 +17,15 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
 
+
+/**
+ * 
+ * @author Team Garbage
+ * 
+ * Shows the save states, and retrieves the user information from the save states.
+ * Directs to the appropriate game mode.
+ *
+ */
 public class LoginController implements EventHandler<ActionEvent> {
 	
 	@FXML
@@ -24,6 +33,12 @@ public class LoginController implements EventHandler<ActionEvent> {
 	private ArrayList<Label> userArr;
 	private LoginModel logModel;
 	
+	
+	/**
+	 * Constructor.
+	 * Creates new user files if they are not in the local directory.
+	 * If the user files exist, read in the information and set to global.
+	 */
 	public LoginController() {
 		super();
 		this.logModel = new LoginModel();
@@ -37,7 +52,7 @@ public class LoginController implements EventHandler<ActionEvent> {
 			String fileName = "src/userFiles/user" + i + ".txt";
 			File userFile = new File(fileName);
 				
-			// init
+			// initial users creation
 			if (!userFile.exists()) {
 				try {
 					userFile.createNewFile();
@@ -45,29 +60,39 @@ public class LoginController implements EventHandler<ActionEvent> {
 					e.printStackTrace();
 				}
 			}
+			
+			BufferedReader br = null;
+			try {
+				br = new BufferedReader(new FileReader(fileName));
+			} catch (FileNotFoundException e) {
+				e.printStackTrace();
+			}     
+			
 			// setting label names
 			String line = null;
 			try {
-	            Scanner sc = new Scanner(userFile);
-	            
-	            if (!sc.hasNextLine()) {
+	            if (br.readLine() == null) {
 	            	if (i == 0) {
-	            		// update
+	            		user0.setText("Empty");
 	            	}
 	            	if (i == 1) {
-	            		// update
+	            		user1.setText("Empty");
 	            	}
 	            	if (i == 2) {
-	            		// update
+	            		user2.setText("Empty");
 	            	}
 	            	if (i == 3) {
-	            		// update
+	            		user3.setText("Empty");
 	            	}
 	            }
 	            else {
-	            	while((line = sc.nextLine()) != null) {
+	            	while((line = br.readLine()) != null) {
 	            		// while the file does have stuff inside
 	            		// update
+	            		// for each game mode
+	            			// cumulative total score
+	            			// how many times died
+	            		// save these stats to global
 	            	}
 	            }   
        
