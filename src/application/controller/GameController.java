@@ -19,6 +19,12 @@ import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
+/*
+ * @author Team Garbage
+ * 
+ * GameController handles input from the game view and updates the
+ * GamemodeOne model.
+ */
 public class GameController implements EventHandler<ActionEvent>{
 	
 	public static GamemodeOne mode;
@@ -46,6 +52,13 @@ public class GameController implements EventHandler<ActionEvent>{
 		mode = new GamemodeOne(this);
 	}
 
+	/*
+	 * Executes when the user presses enter after typing a word.
+	 * Checks the enemies on the screen for the word typed,
+	 * and updates the score.
+	 * 
+	 * @param event The input event given from the view.
+	 */
 	@Override
 	public void handle(ActionEvent event) {
 		 if(event.getSource() instanceof TextField) {
@@ -58,28 +71,45 @@ public class GameController implements EventHandler<ActionEvent>{
 		 } 
 	}
 	
+	/*
+	 * Handles the input from the game that isn't a word being typed.
+	 * 
+	 * @param event The input event from the game.
+	 */
 	public void onKeyPressed(KeyEvent event) {
 		if(event.getCode() == KeyCode.ESCAPE) {
 			pause();
 		}
 	}
 	
+	/*
+	 * Pauses the game and shows the pause menu.
+	 */
 	public void pause() {
 		mode.setPaused(true);
 		pauseMenu.setVisible(true);
 		 
 	}
 	
+	/*
+	 * Hides the pause menu and unpauses the game.
+	 */
 	public void resume() {
 		mode.setPaused(false);
 		pauseMenu.setVisible(false);
 	}
 	
+	/*
+	 * Resets the game.
+	 */
 	public void retry() {
 		gameOverMenu.setVisible(false);
 		mode = new GamemodeOne(this);
 	}
 	
+	/*
+	 * Returns the user to the main menu.
+	 */
 	public void mainMenu() {
 		Parent menuViewParent = null;
 		try {
@@ -99,10 +129,16 @@ public class GameController implements EventHandler<ActionEvent>{
 		MainController.scoreModifier = 1.0f;
 	}
 	
+	/*
+	 * Clsoes the game.
+	 */
 	public void quit() {
 		System.exit(0);
 	}
 	
+	/*
+	 * Executes when the player is out of lives. Ends the game.
+	 */
 	public void gameOver() {
 		mode.setPaused(true);
 		gameOverMenu.setVisible(true);
