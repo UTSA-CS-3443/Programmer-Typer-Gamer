@@ -130,7 +130,7 @@ public class GameController implements EventHandler<ActionEvent>{
 	}
 	
 	/*
-	 * Clsoes the game.
+	 * Closes the game.
 	 */
 	public void quit() {
 		System.exit(0);
