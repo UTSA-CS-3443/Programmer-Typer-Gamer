@@ -48,51 +48,6 @@ public class LoginController implements EventHandler<ActionEvent> {
 		super();
 		this.logModel = new LoginModel();
 		
-		user0 = new Label();
-		user1 = new Label();
-		user2 = new Label();
-		user3 = new Label();
-		
-		for (int i = 0; i < 4; i++) {
-			String fileName = "src/userFiles/user" + i + ".txt";
-			File userFile = new File(fileName);
-				
-			// initial users creation
-			if (!userFile.exists()) {
-				try {
-					userFile.createNewFile();
-				} catch (IOException e) {
-					e.printStackTrace();
-				}
-			}
-			
-			Scanner sc = null;
-			try {
-				sc = new Scanner(fileName);
-			} catch (Exception e) {
-				e.printStackTrace();
-			}     
-			
-			// setting label names
-			String line = null;
-			try {
-	            if (!sc.hasNext()) {
-	            	// already empty file, so continue the loop
-	            	continue;
-	            }
-	            else {
-	            	while(sc.hasNext()) {
-	            		LoginController.curDiff = Integer.parseInt(sc.next());
-	            		LoginController.totScore = Integer.parseInt(sc.next());
-	            		LoginController.totDeath = Integer.parseInt(sc.next());
-	            	}
-	            }   
-	        }
-	        catch(Exception e) {
-	            System.out.println("Unable to open file '" + fileName + "'");
-	            e.printStackTrace();
-	        }
-		}
 	}
 
 	/**
