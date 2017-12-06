@@ -96,36 +96,38 @@ public class MainController implements EventHandler<ActionEvent> {
 	
 	public MainController() {
 		super();
-		this.mediaBool = true;
-		this.soundCheckBox = new CheckBox();
-		try {
-			if(soundFixer == false) {
-			String musicFile = "src/soundTrack/powerMove.mp3";
-			this.sound = new Media(new File(musicFile).toURI().toString());
-			this.mediaPlayer = new MediaPlayer(sound);
-			this.mediaPlayer.play();
-			soundFixer = true;
-			}
-			
-		} catch(Exception e) {
-			e.printStackTrace();
-		}
+		// for potential mute button idea
+//		this.mediaBool = true;
+//		this.soundCheckBox = new CheckBox();
+//		try {
+//			if(soundFixer == false) {
+//			String musicFile = "src/soundTrack/powerMove.mp3";
+//			this.sound = new Media(new File(musicFile).toURI().toString());
+//			this.mediaPlayer = new MediaPlayer(sound);
+//			this.mediaPlayer.play();
+//			soundFixer = true;
+//			}
+//			
+//		} catch(Exception e) {
+//			e.printStackTrace();
+//		}
 	}
 	
 	/**
 	 * 
 	 * Pauses the audio or plays the audio
+	 * potential mute button idea
 	 */
-	public void soundCheck() {
-		if (this.mediaBool == true) {
-			this.mediaBool = false;
-			this.mediaPlayer.pause();
-		}
-		else {
-			this.mediaBool = true;
-			this.mediaPlayer.play();
-		}
-	}
+//	public void soundCheck() {
+//		if (this.mediaBool == true) {
+//			this.mediaBool = false;
+//			this.mediaPlayer.pause();
+//		}
+//		else {
+//			this.mediaBool = true;
+//			this.mediaPlayer.play();
+//		}
+//	}
 	// Changes to the ocean background when the theme radio button is selected
 	public void oceanViewChg(ActionEvent event) {
 		Image image = new Image(getClass().getResource("/Images/oceanGameBg.jpg").toExternalForm());
@@ -186,9 +188,9 @@ public class MainController implements EventHandler<ActionEvent> {
 		// Used to fix a bug where the lives wouldn't reset if you quit out of a game mode with lives missing.
 		lives = 3;
 		
-		// When transitioning to login screen, stop the audio
-		this.mediaBool = false;
-		this.mediaPlayer.pause();
+//		// When transitioning to login screen, stop the audio
+//		this.mediaBool = false;
+//		this.mediaPlayer.pause();
 		
 		// Launches to the next scene.
 		Parent root = FXMLLoader.load(getClass().getResource("/application/view/Login.fxml")); // Loads Main Menu fxml 

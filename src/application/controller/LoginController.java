@@ -72,18 +72,8 @@ public class LoginController implements EventHandler<ActionEvent> {
 			String line = null;
 			try {
 	            if (br.readLine() == null) {
-	            	if (i == 0) {
-	            		user0.setText("Empty");
-	            	}
-	            	if (i == 1) {
-	            		user1.setText("Empty");
-	            	}
-	            	if (i == 2) {
-	            		user2.setText("Empty");
-	            	}
-	            	if (i == 3) {
-	            		user3.setText("Empty");
-	            	}
+	            	// already empty file
+	            	continue;
 	            }
 	            else {
 	            	while((line = br.readLine()) != null) {

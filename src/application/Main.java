@@ -28,6 +28,12 @@ public class Main extends Application {
 	@Override
 	public void start(Stage primaryStage) {
 		
+		String musicFile = "src/soundTrack/powerMove.mp3";
+		Media sound = new Media(new File(musicFile).toURI().toString());
+		MediaPlayer mediaPlayer = new MediaPlayer(sound);
+		mediaPlayer.setCycleCount(MediaPlayer.INDEFINITE);
+		mediaPlayer.play();
+		
 		try {
 			Parent root = FXMLLoader.load(getClass().getResource("view/Main.fxml"));
 			primaryStage.setScene(new Scene(root, 600, 400));
@@ -38,6 +44,8 @@ public class Main extends Application {
 		} catch(Exception e) {
 			e.printStackTrace();
 		}
+		
+		
 		
 		this.stage = primaryStage;
 	}
