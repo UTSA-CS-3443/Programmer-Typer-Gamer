@@ -20,39 +20,10 @@ public class LoginModel {
 		
 	}
 	
-	public void organize () throws IOException {
-		
-		
-		// stats class
-//		if (fileName.exists() && !fileName.isDirectory()) {
-//			
-//		}
-//		else if (!fileName.exists() && !fileName.isDirectory()) {
-//			
-//		}
-//		else {
-//			System.out.println("This should really be a file");
-//		}
-	}
 	
 	public void update(String inputText) {
-		this.profileName = inputText;
-		
-		try {
-			this.organize();
-		}
-		catch (Exception e) {
-			e.printStackTrace();
-		}
-		
 		
 	}
-	
-//	public ArrayList<String> getNameArr () {
-//		return this.nameArr;
-//	}
-	
-	// stats for each difficulty
 	
 
 }

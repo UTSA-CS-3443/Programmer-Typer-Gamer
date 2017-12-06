@@ -128,23 +128,43 @@ public class MainController implements EventHandler<ActionEvent> {
 //			this.mediaPlayer.play();
 //		}
 //	}
-	// Changes to the ocean background when the theme radio button is selected
+	
+	/**
+	 * Changes to the ocean background when the theme radio button is selected
+	 * @param event
+	 * event that is passed in from the main view
+	 */
 	public void oceanViewChg(ActionEvent event) {
 		Image image = new Image(getClass().getResource("/Images/oceanGameBg.jpg").toExternalForm());
 		this.curImage.setImage(image);
 	}
-	// Changes to the city background when the theme radio button is selected
+	
+	/**
+	 * Changes to the city background when the theme radio button is selected
+	 * @param event
+	 * event that is passed in from the main view
+	 */
 	public void cityViewChg(ActionEvent event) {
 		Image image = new Image(getClass().getResource("/Images/City.jpg").toExternalForm());
 		this.curImage.setImage(image);
 	}
-	// Changes to the space background when the theme radio button is selected
+	/**
+	 * Changes to the space background when the theme radio button is selected
+	 * @param event
+	 * event that is passed in from the main view
+	 */
 	public void spaceViewChg(ActionEvent event) {
 		Image image = new Image(getClass().getResource("/Images/nebula.jpg").toExternalForm());
 		this.curImage.setImage(image);
 	}
 	
-	// Runs when the start button is clicked. 
+	/**
+	 * 
+	 * @param event
+	 * event that is passed in from the main view
+	 * @throws Exception
+	 * any unexpected exception
+	 */
 	public void Login(ActionEvent event) throws Exception {
 		// Sets difficulty values to easy
 		if(easyBut.isSelected() == true) {

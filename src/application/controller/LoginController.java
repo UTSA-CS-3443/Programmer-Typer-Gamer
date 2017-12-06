@@ -30,8 +30,13 @@ public class LoginController implements EventHandler<ActionEvent> {
 	
 	@FXML
 	private Label user0, user1, user2, user3;
-	private ArrayList<Label> userArr;
 	private LoginModel logModel;
+	
+	public static File curUser;
+	public static int curDiff;
+	public static int totScore;
+	public static int totDeath;
+	
 	
 	
 	/**
@@ -61,46 +66,38 @@ public class LoginController implements EventHandler<ActionEvent> {
 				}
 			}
 			
-			BufferedReader br = null;
+			Scanner sc = null;
 			try {
-				br = new BufferedReader(new FileReader(fileName));
-			} catch (FileNotFoundException e) {
+				sc = new Scanner(fileName);
+			} catch (Exception e) {
 				e.printStackTrace();
 			}     
 			
 			// setting label names
 			String line = null;
 			try {
-	            if (br.readLine() == null) {
-	            	// already empty file
+	            if (!sc.hasNext()) {
+	            	// already empty file, so continue the loop
 	            	continue;
 	            }
 	            else {
-	            	while((line = br.readLine()) != null) {
-	            		// while the file does have stuff inside
-	            		// update
-	            		// for each game mode
-	            			// cumulative total score
-	            			// how many times died
-	            		// save these stats to global
+	            	while(sc.hasNext()) {
+	            		LoginController.curDiff = Integer.parseInt(sc.next());
+	            		LoginController.totScore = Integer.parseInt(sc.next());
+	            		LoginController.totDeath = Integer.parseInt(sc.next());
 	            	}
 	            }   
-       
 	        }
-	        catch(FileNotFoundException e) {
+	        catch(Exception e) {
 	            System.out.println("Unable to open file '" + fileName + "'");
 	            e.printStackTrace();
 	        }
-	        catch(IOException e) {
-	            System.out.println("Error reading file '" + fileName + "'");
-	            e.printStackTrace();
-	        }
-			
-			
 		}
-		
 	}
 
+	/**
+	 * Changes the game modes
+	 */
 	@Override
 	public void handle(ActionEvent event) {
 		Button b = (Button)event.getSource();

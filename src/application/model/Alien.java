@@ -21,7 +21,9 @@ public class Alien {
 	
 	/**
 	 * @param x
+	 * x coordinate
 	 * @param y
+	 * y coordinate
 	 * @param word
 	 * Constructor for the Alien object
 	 */
@@ -39,12 +41,14 @@ public class Alien {
 	
 	/**
 	 * @return x
+	 * x coordinate
 	 */
 	public double getX() {
 		return x;
 	}
 	/**
 	 * @return y
+	 * y coordinate
 	 */
 	public double getY() {
 		return y;
@@ -52,6 +56,7 @@ public class Alien {
 	
 	/**
 	 * @return word
+	 * specified word
 	 */
 	public String getWord() {
 		return word;
@@ -101,6 +106,7 @@ public class Alien {
 	//Three hearts for three lives. 
 	/**
 	 * @param gc
+	 * javafx graphical context
 	 */
 	public void heart1(GraphicsContext gc) {
 		gc.drawImage(heartImg,5,5);
@@ -108,6 +114,7 @@ public class Alien {
 	
 	/**
 	 * @param gc
+	 * javafx graphical context
 	 */
 	public void heart2(GraphicsContext gc) {
 		gc.drawImage(heartImg,50,5);
@@ -115,6 +122,7 @@ public class Alien {
 	
 	/**
 	 * @param gc
+	 * javafx graphical context
 	 */
 	public void heart3(GraphicsContext gc) {
 		gc.drawImage(heartImg,95,5);
